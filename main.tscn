@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=4 format=3 uid="uid://dsx1t5pvgbbr8"]
+
+[ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_ofqc0"]
+[ext_resource type="Script" path="res://actor.gd" id="2_q4yoh"]
+[ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/bat.tres" id="3_3ai05"]
 
 [node name="main" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Actor" type="Sprite2D" parent="."]
+position = Vector2(-167, -36)
+texture = ExtResource("1_ofqc0")
+script = ExtResource("2_q4yoh")
+base = ExtResource("3_3ai05")
