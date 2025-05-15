@@ -6,3 +6,9 @@
 [resource]
 script = ExtResource("1_ve71t")
 sprite = ExtResource("2_l2h2v")
+health = 100
+energy = 80
+attack = 5
+intelligence = 3
+defence = 4
+resistance = 2

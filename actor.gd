@@ -2,11 +2,14 @@ class_name Actor extends Sprite2D
 
 @export var base:ActorBase
 
+@onready var health_bar: ProgressBar = $HealthBar
+
 var wait_for_input: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture = base.sprite
+	health_bar.update()
 	TurnManager.turn_start.connect(_on_turn_start)
 
 
