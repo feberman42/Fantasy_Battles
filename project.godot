@@ -14,6 +14,15 @@ config/name="wesnothmon"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TurnManager="*res://turn_manager.gd"
+
+[global_group]
+
+actor=""
+player=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

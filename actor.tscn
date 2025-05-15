@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bna7gvywnyp5"]
+
+[ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_g0fi7"]
+[ext_resource type="Script" path="res://actor.gd" id="2_arh56"]
+[ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/bat.tres" id="3_ymmc7"]
+
+[node name="Actor" type="Sprite2D" groups=["actor"]]
+position = Vector2(-167, -36)
+texture = ExtResource("1_g0fi7")
+script = ExtResource("2_arh56")
+base = ExtResource("3_ymmc7")

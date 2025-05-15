@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ActorBase" load_steps=3 format=3 uid="uid://dsmc2okxinm4t"]
+
+[ext_resource type="Script" path="res://actors/actor_base.gd" id="1_ve71t"]
+[ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="2_l2h2v"]
+
+[resource]
+script = ExtResource("1_ve71t")
+sprite = ExtResource("2_l2h2v")
