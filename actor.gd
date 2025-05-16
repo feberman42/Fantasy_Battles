@@ -1,6 +1,6 @@
 class_name Actor extends Sprite2D
 
-@export var base:ActorBase
+@export var base: ActorBase
 
 @onready var health_bar: ProgressBar = $HealthBar
 
@@ -11,7 +11,6 @@ func _ready() -> void:
 	texture = base.sprite
 	health_bar.update()
 	TurnManager.turn_start.connect(_on_turn_start)
-
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return

@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="ActorBase" load_steps=3 format=3 uid="uid://bspg866urdgvy"]
+[gd_resource type="Resource" script_class="ActorBase" load_steps=5 format=3 uid="uid://bspg866urdgvy"]
 
 [ext_resource type="Script" path="res://actors/actor_base.gd" id="1_5lyeb"]
 [ext_resource type="Texture2D" uid="uid://cs440vhh2shrr" path="res://units_wesnoth/bats/bat-se-2.png" id="2_ro8b5"]
+[ext_resource type="Script" path="res://stats.gd" id="3_xbnh4"]
+
+[sub_resource type="Resource" id="Resource_biv31"]
+script = ExtResource("3_xbnh4")
+health = 30
+energy = 15
+attack = 3
+intelligence = 1
+defence = 2
+resistance = 4
 
 [resource]
 script = ExtResource("1_5lyeb")
 sprite = ExtResource("2_ro8b5")
-health = 30
-energy = 20
-attack = 3
-intelligence = 1
-defence = 1
-resistance = 2
+stats = SubResource("Resource_biv31")
