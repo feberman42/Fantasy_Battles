@@ -4,7 +4,9 @@ class_name Actor extends Sprite2D
 var current_stats: Stats = Stats.new()
 var status: Status = Status.new()
 
-@onready var health_bar: ProgressBar = $HealthBar
+@export var opponent: Actor
+
+@onready var health_bar: HealthBar = $HealthBar
 
 var wait_for_input: bool = false
 
@@ -22,6 +24,7 @@ func _on_turn_start(actor: Actor) -> void:
 		wait_for_input = true
 		return
 	else:
+		opponent.take_damage(current_stats.attack)
 		await get_tree().create_timer(0.5).timeout
 		print(self, " acted")
 		TurnManager.turn_end.emit(self)
@@ -30,6 +33,7 @@ func _on_turn_start(actor: Actor) -> void:
 func _process(delta: float) -> void:
 	if not wait_for_input: return
 	if Input.is_action_just_pressed("ui_accept"):
+		opponent.take_damage(current_stats.attack)
 		wait_for_input = false
 		TurnManager.turn_end.emit(self)
 		
@@ -40,3 +44,8 @@ func _calculate_stats() -> void:
 	current_stats.defence = base.stats.defence
 	current_stats.intelligence = base.stats.intelligence
 	current_stats.resistance = base.stats.resistance
+	
+func take_damage(amount: int) -> void:
+	print(self, " received damage ", amount)
+	status.current_health -= amount
+	health_bar.update()

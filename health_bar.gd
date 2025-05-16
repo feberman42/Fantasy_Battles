@@ -1,4 +1,4 @@
-extends ProgressBar
+class_name HealthBar extends ProgressBar
 
 var actor: Actor
 

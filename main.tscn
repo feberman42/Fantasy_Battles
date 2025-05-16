@@ -8,8 +8,10 @@
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("1_c28we")]
+[node name="Player" parent="." node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 base = ExtResource("2_ljlfu")
+opponent = NodePath("../Actor2")
 
-[node name="Actor2" parent="." instance=ExtResource("1_c28we")]
+[node name="Actor2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
 position = Vector2(110, 42)
+opponent = NodePath("../Player")

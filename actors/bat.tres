@@ -8,7 +8,7 @@
 script = ExtResource("3_xbnh4")
 health = 30
 energy = 15
-attack = 3
+attack = 10
 intelligence = 1
 defence = 2
 resistance = 4
