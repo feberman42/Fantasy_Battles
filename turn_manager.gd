@@ -29,7 +29,7 @@ func _next_turn() -> void:
 	turn_start.emit(active_actor)
 
 func _on_turn_end(actor: Actor) -> void:
-	print("Turn end: ", actor)
+	print("Turn end: ", actor, "\n")
 	await get_tree().create_timer(0.5).timeout
 	_next_turn()
 

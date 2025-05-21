@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=6 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actor.tscn" id="1_c28we"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/peasant.tres" id="2_ljlfu"]
+[ext_resource type="Script" path="res://combat_actions/basic_combat_action.gd" id="3_suqxr"]
+[ext_resource type="Resource" uid="uid://b3q0lde81eh72" path="res://combat_actions/Punch.tres" id="4_gr5yv"]
+[ext_resource type="Resource" uid="uid://cy7kl1uxr6apc" path="res://combat_actions/Bolt.tres" id="5_ujt5x"]
 
 [node name="main" type="Node2D"]
 
@@ -10,8 +13,10 @@ zoom = Vector2(2, 2)
 
 [node name="Player" parent="." node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 base = ExtResource("2_ljlfu")
+combat_cations = Array[ExtResource("3_suqxr")]([ExtResource("4_gr5yv"), ExtResource("5_ujt5x")])
 opponent = NodePath("../Actor2")
 
 [node name="Actor2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
 position = Vector2(110, 42)
+combat_cations = Array[ExtResource("3_suqxr")]([ExtResource("4_gr5yv")])
 opponent = NodePath("../Player")

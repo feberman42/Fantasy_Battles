@@ -10,7 +10,7 @@ health = 100
 energy = 80
 attack = 10
 intelligence = 6
-defence = 3
+defense = 0
 resistance = 2
 
 [resource]
