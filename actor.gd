@@ -49,3 +49,6 @@ func take_damage(amount: int) -> void:
 	print(self, " received damage ", amount)
 	status.current_health -= amount
 	health_bar.update()
+	if status.current_health <= 0:
+		TurnManager.actor_died.emit(self)
+		self.queue_free()
