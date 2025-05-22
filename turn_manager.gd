@@ -1,5 +1,6 @@
 extends Node
 
+signal start_battle
 signal turn_start(actor: Actor)
 signal turn_end(actor: Actor)
 signal actor_died(actor: Actor)
@@ -10,6 +11,10 @@ var active_actors: Array[Actor]
 func _ready() -> void:
 	turn_end.connect(_on_turn_end)
 	actor_died.connect(_on_actor_death)
+	start_battle.connect(_on_battle_start)
+
+
+func _on_battle_start() -> void:
 	_load_actors()
 	await get_tree().create_timer(1).timeout #replace with ui 
 	_next_turn()

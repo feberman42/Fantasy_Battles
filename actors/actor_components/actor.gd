@@ -17,14 +17,19 @@ func _to_string() -> String:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	combat_action_list.visible = false
+	TurnManager.turn_start.connect(_on_turn_start)
+	combat_action_list.item_selected.connect(_on_action_selected)
+	load_base()
+
+func load_base() -> void:
 	texture = base.sprite
+	if not self.is_in_group("player"):
+		self.flip_h = true
 	_calculate_stats()
 	status.initialize(current_stats)
 	self.combat_cations = self.base.combat_actions.duplicate()
-	combat_action_list.visible = false
 	health_bar.update()
-	TurnManager.turn_start.connect(_on_turn_start)
-	combat_action_list.item_selected.connect(_on_action_selected)
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
@@ -39,7 +44,7 @@ func _on_turn_start(actor: Actor) -> void:
 		TurnManager.turn_end.emit(self)
 
 func _on_action_selected(index: int) -> void:
-	combat_cations[0].execute(self, opponent)
+	combat_cations[index].execute(self, opponent)
 	self._end_turn()
 
 func _end_turn() -> void:
