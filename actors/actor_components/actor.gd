@@ -1,7 +1,7 @@
 class_name Actor extends Sprite2D
 
 @export var base: ActorBase
-@export var combat_cations: Array[BasicCombatAction]
+var combat_cations: Array[BasicCombatAction]
 var current_stats: Stats = Stats.new()
 var status: Status = Status.new()
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	texture = base.sprite
 	_calculate_stats()
 	status.initialize(current_stats)
+	self.combat_cations = self.base.combat_actions.duplicate()
 	combat_action_list.visible = false
 	health_bar.update()
 	TurnManager.turn_start.connect(_on_turn_start)
