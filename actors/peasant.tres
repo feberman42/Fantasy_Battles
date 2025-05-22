@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ActorBase" load_steps=5 format=3 uid="uid://dsmc2okxinm4t"]
 
-[ext_resource type="Script" path="res://actors/actor_base.gd" id="1_ve71t"]
+[ext_resource type="Script" path="res://actors/actor_components/actor_base.gd" id="1_g2we5"]
 [ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="2_l2h2v"]
-[ext_resource type="Script" path="res://stats.gd" id="3_81jq3"]
+[ext_resource type="Script" path="res://actors/actor_components/stats.gd" id="3_81jq3"]
 
 [sub_resource type="Resource" id="Resource_px50q"]
 script = ExtResource("3_81jq3")
@@ -14,6 +14,6 @@ defense = 0
 resistance = 2
 
 [resource]
-script = ExtResource("1_ve71t")
+script = ExtResource("1_g2we5")
 sprite = ExtResource("2_l2h2v")
 stats = SubResource("Resource_px50q")
