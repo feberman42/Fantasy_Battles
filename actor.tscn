@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_g0fi7"]
 [ext_resource type="Script" path="res://actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/bat.tres" id="3_ymmc7"]
 [ext_resource type="Script" path="res://health_bar.gd" id="4_x4sjk"]
+[ext_resource type="Script" path="res://combat_actions_list.gd" id="5_5248d"]
+[ext_resource type="FontFile" uid="uid://58d83q2jjs0u" path="res://RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf" id="5_vacvx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
 bg_color = Color(0.235732, 0.235732, 0.235732, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a8if"]
 bg_color = Color(0.955179, 0.398739, 0.297036, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q32jy"]
+
+[sub_resource type="Theme" id="Theme_guve6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
+bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
 [node name="Actor" type="Sprite2D" groups=["actor"]]
 position = Vector2(-167, -36)
@@ -36,3 +45,24 @@ step = 1.0
 value = 100.0
 show_percentage = false
 script = ExtResource("4_x4sjk")
+
+[node name="CombatActionsList" type="ItemList" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_q32jy")
+offset_left = -34.0
+offset_top = 39.0
+offset_right = 593.0
+offset_bottom = 161.0
+scale = Vector2(0.11, 0.11)
+theme = SubResource("Theme_guve6")
+theme_override_colors/guide_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.82, 0.82, 0.82, 1)
+theme_override_fonts/font = ExtResource("5_vacvx")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/panel = SubResource("StyleBoxFlat_5d4ph")
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "combat action"
+script = ExtResource("5_5248d")

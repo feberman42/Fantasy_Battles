@@ -8,6 +8,7 @@ var status: Status = Status.new()
 @export var opponent: Actor
 
 @onready var health_bar: HealthBar = $HealthBar
+@onready var combat_action_list: CombatActionList = $CombatActionsList
 
 var wait_for_input: bool = false
 
@@ -19,12 +20,16 @@ func _ready() -> void:
 	texture = base.sprite
 	_calculate_stats()
 	status.initialize(current_stats)
+	combat_action_list.visible = false
 	health_bar.update()
 	TurnManager.turn_start.connect(_on_turn_start)
+	combat_action_list.item_selected.connect(_on_action_selected)
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
 	if self.is_in_group("player"):
+		combat_action_list.update_list(combat_cations)
+		combat_action_list.visible = true
 		wait_for_input = true
 		return
 	else:
@@ -32,17 +37,14 @@ func _on_turn_start(actor: Actor) -> void:
 		await get_tree().create_timer(0.5).timeout
 		TurnManager.turn_end.emit(self)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if not wait_for_input: return
-	if Input.is_action_just_pressed("num_1"):
-		combat_cations[0].execute(self, opponent)
-		wait_for_input = false
-		TurnManager.turn_end.emit(self)
-	elif Input.is_action_just_pressed("num_2"):
-		combat_cations[1].execute(self, opponent)
-		wait_for_input = false
-		TurnManager.turn_end.emit(self)
+func _on_action_selected(index: int) -> void:
+	combat_cations[0].execute(self, opponent)
+	self._end_turn()
+
+func _end_turn() -> void:
+	self.wait_for_input = false
+	self.combat_action_list.visible = false
+	TurnManager.turn_end.emit(self)
 		
 func _calculate_stats() -> void:
 	current_stats.health = base.stats.health

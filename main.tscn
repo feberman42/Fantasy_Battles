@@ -14,9 +14,9 @@ zoom = Vector2(2, 2)
 [node name="Player" parent="." node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 base = ExtResource("2_ljlfu")
 combat_cations = Array[ExtResource("3_suqxr")]([ExtResource("4_gr5yv"), ExtResource("5_ujt5x")])
-opponent = NodePath("../Actor2")
+opponent = NodePath("../Opponent")
 
-[node name="Actor2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
+[node name="Opponent" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
 position = Vector2(110, 42)
 combat_cations = Array[ExtResource("3_suqxr")]([ExtResource("4_gr5yv")])
 opponent = NodePath("../Player")
