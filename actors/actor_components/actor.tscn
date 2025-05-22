@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_g0fi7"]
-[ext_resource type="Script" path="res://actors/actor_components/actor.gd" id="2_arh56"]
+[ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/bat.tres" id="3_ymmc7"]
-[ext_resource type="Script" path="res://actors/actor_components/health_bar.gd" id="4_x4sjk"]
-[ext_resource type="Script" path="res://actors/actor_components/combat_actions_list.gd" id="5_5248d"]
+[ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/actor_components/health_bar.gd" id="4_x4sjk"]
+[ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/actor_components/combat_actions_list.gd" id="5_5248d"]
 [ext_resource type="FontFile" uid="uid://58d83q2jjs0u" path="res://fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf" id="5_vacvx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
