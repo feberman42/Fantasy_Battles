@@ -1,6 +1,7 @@
 extends Node
 
 signal start_battle
+signal end_battle
 signal turn_start(actor: Actor)
 signal turn_end(actor: Actor)
 signal actor_died(actor: Actor)
@@ -21,12 +22,14 @@ func _on_battle_start() -> void:
 
 func _load_actors() -> void:
 	var actor_group: Array[Node] = get_tree().get_nodes_in_group("actor")
+	active_actors.clear()
 	for node in actor_group:
 		active_actors.append(node as Actor)
 
 func _next_turn() -> void:
 	if len(active_actors) == 1:
 		print("Game Over! - ", active_actors.front(), " won the game.")
+		end_battle.emit()
 		return
 	var active_actor: Actor = active_actors.pop_front()
 	active_actors.push_back(active_actor)
