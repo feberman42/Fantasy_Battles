@@ -15,6 +15,7 @@ player_actor = NodePath("Player")
 opponent_actor = NodePath("Opponent")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
+position = Vector2(-134, -48)
 base = ExtResource("2_ljlfu")
 opponent = NodePath("../Opponent")
 
