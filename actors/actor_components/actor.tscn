@@ -1,11 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=14 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_g0fi7"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/bat.tres" id="3_ymmc7"]
+[ext_resource type="FontFile" uid="uid://dpv85iuthlyy8" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="4_ko51d"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/actor_components/combat_actions_list.gd" id="5_5248d"]
 [ext_resource type="FontFile" uid="uid://58d83q2jjs0u" path="res://fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf" id="5_vacvx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqqjx"]
+font = ExtResource("4_ko51d")
+font_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
 bg_color = Color(0.235732, 0.235732, 0.235732, 1)
@@ -21,10 +26,22 @@ bg_color = Color(0.955179, 0.398739, 0.297036, 1)
 bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
 [node name="Actor" type="Sprite2D" groups=["actor"]]
-position = Vector2(-167, -36)
 texture = ExtResource("1_g0fi7")
 script = ExtResource("2_arh56")
 base = ExtResource("3_ymmc7")
+
+[node name="NameTag" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = -36.0
+offset_right = -13.0
+offset_bottom = -20.0
+grow_horizontal = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_dqqjx")
+horizontal_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 anchors_preset = 7

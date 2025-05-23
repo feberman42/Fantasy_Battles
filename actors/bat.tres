@@ -18,5 +18,6 @@ resistance = 4
 [resource]
 script = ExtResource("1_5x2me")
 sprite = ExtResource("2_ro8b5")
+name = "Bat"
 stats = SubResource("Resource_biv31")
 combat_actions = Array[ExtResource("1_ouab4")]([ExtResource("2_phm1e")])

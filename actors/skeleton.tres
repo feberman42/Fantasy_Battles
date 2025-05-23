@@ -19,5 +19,6 @@ metadata/_custom_type_script = "uid://c4lx4aga0hdtp"
 [resource]
 script = ExtResource("1_v3opw")
 sprite = ExtResource("4_0esw4")
+name = "Skeleton"
 stats = SubResource("Resource_m3ujq")
 combat_actions = Array[ExtResource("1_rsesi")]([ExtResource("2_7axcv")])

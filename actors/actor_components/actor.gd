@@ -7,6 +7,7 @@ var status: Status = Status.new()
 
 @export var opponent: Actor
 
+@onready var name_tag: Label = $NameTag
 @onready var health_bar: HealthBar = $HealthBar
 @onready var combat_action_list: CombatActionList = $CombatActionsList
 
@@ -23,13 +24,17 @@ func _ready() -> void:
 	load_base()
 
 func load_base() -> void:
+	print(self, " load_base...")
 	texture = base.sprite
+	self.name_tag.text = "Player"
 	if not self.is_in_group("player"):
 		self.flip_h = true
+		self.name_tag.text = base.name
 	_calculate_stats()
 	status.initialize(current_stats)
 	self.combat_cations = self.base.combat_actions.duplicate()
 	health_bar.update()
+	self.visible = true
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
@@ -80,7 +85,7 @@ func _take_damage(amount: int) -> int:
 func _check_death() -> bool:
 	if self.status.current_health <= 0:
 		TurnManager.actor_died.emit(self)
-		self.queue_free()
+		self.visible = false
 		return true
 	else:
 		return false
