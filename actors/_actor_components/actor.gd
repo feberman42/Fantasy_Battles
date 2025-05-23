@@ -1,4 +1,4 @@
-class_name Actor extends Sprite2D
+class_name Actor extends AnimatedSprite2D
 
 @export var base: ActorBase
 var combat_cations: Array[BasicCombatAction]
@@ -25,7 +25,8 @@ func _ready() -> void:
 
 func load_base() -> void:
 	print(self, " load_base...")
-	texture = base.sprite
+	self.sprite_frames = base.sprites
+	self.play("idle")
 	self.name_tag.text = "Player"
 	if not self.is_in_group("player"):
 		self.flip_h = true

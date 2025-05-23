@@ -1,12 +1,85 @@
-[gd_scene load_steps=14 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=27 format=3 uid="uid://bna7gvywnyp5"]
 
-[ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="1_g0fi7"]
+[ext_resource type="Texture2D" uid="uid://j2hob57ixwxt" path="res://actors/Bat/Sprites/bat-se-1.png" id="1_0a4hs"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
+[ext_resource type="Texture2D" uid="uid://cs440vhh2shrr" path="res://actors/Bat/Sprites/bat-se-2.png" id="2_nqcn1"]
+[ext_resource type="Texture2D" uid="uid://bidgp1rl6rr7f" path="res://actors/Bat/Sprites/bat-se-3.png" id="3_tr2ew"]
 [ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/Bat/Bat.tres" id="3_ymmc7"]
+[ext_resource type="Texture2D" uid="uid://bwchkf0fyxagb" path="res://actors/Bat/Sprites/bat-se-4.png" id="4_kbjf7"]
 [ext_resource type="FontFile" uid="uid://dpv85iuthlyy8" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="4_ko51d"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
+[ext_resource type="Texture2D" uid="uid://donggml2eh845" path="res://actors/Bat/Sprites/bat-se-5.png" id="5_afl5p"]
 [ext_resource type="FontFile" uid="uid://58d83q2jjs0u" path="res://fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf" id="5_vacvx"]
+[ext_resource type="Texture2D" uid="uid://bhb370ev7jlsl" path="res://actors/Skeleton/Sprites/skeleton-se-bob1.png" id="6_nrww3"]
+[ext_resource type="Texture2D" uid="uid://b1ojsp54dyw44" path="res://actors/Skeleton/Sprites/skeleton-se-bob2.png" id="7_nqpol"]
+[ext_resource type="Texture2D" uid="uid://dauqoqtcjm8av" path="res://actors/Skeleton/Sprites/skeleton-se-bob3.png" id="8_n2i6m"]
+[ext_resource type="Texture2D" uid="uid://diodisbkihr4d" path="res://actors/Skeleton/Sprites/skeleton-se-bob4.png" id="9_jk235"]
+[ext_resource type="Texture2D" uid="uid://c3r2rm4nhuxmi" path="res://actors/Skeleton/Sprites/skeleton-se-bob5.png" id="10_3c2in"]
+[ext_resource type="Texture2D" uid="uid://b8gk5bh70gu1l" path="res://actors/Skeleton/Sprites/skeleton-se-bob6.png" id="11_di1no"]
+[ext_resource type="Texture2D" uid="uid://k1y6ja3j630r" path="res://actors/Skeleton/Sprites/skeleton-se-bob7.png" id="12_u01te"]
+[ext_resource type="Texture2D" uid="uid://drayptex46uci" path="res://actors/Skeleton/Sprites/skeleton-se-bob8.png" id="13_q8y1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_am4fw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0a4hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nqcn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tr2ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kbjf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_afl5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kbjf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tr2ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nqcn1")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_nrww3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nqpol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n2i6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jk235")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3c2in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_di1no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u01te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q8y1m")
+}],
+"loop": true,
+"name": &"skeleton",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dqqjx"]
 font = ExtResource("4_ko51d")
@@ -25,8 +98,10 @@ bg_color = Color(0.955179, 0.398739, 0.297036, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
 bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
-[node name="Actor" type="Sprite2D" groups=["actor"]]
-texture = ExtResource("1_g0fi7")
+[node name="Actor" type="AnimatedSprite2D" groups=["actor"]]
+sprite_frames = SubResource("SpriteFrames_am4fw")
+animation = &"skeleton"
+frame_progress = 0.0768719
 script = ExtResource("2_arh56")
 base = ExtResource("3_ymmc7")
 

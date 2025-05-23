@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdoekquxuxxad" path="res://actors/_actor_components/actor_base.gd" id="1_5x2me"]
 [ext_resource type="Script" uid="uid://dfi2ffffuj22s" path="res://combat_actions/basic_combat_action.gd" id="1_ouab4"]
 [ext_resource type="Resource" uid="uid://b3q0lde81eh72" path="res://combat_actions/Punch.tres" id="2_phm1e"]
-[ext_resource type="Texture2D" uid="uid://cs440vhh2shrr" path="res://units_wesnoth/bats/bat-se-2.png" id="2_ro8b5"]
+[ext_resource type="SpriteFrames" uid="uid://bhjr73gn3xicw" path="res://actors/Bat/Bat_animations.tres" id="4_4bxg1"]
 [ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/stats.gd" id="5_a2hn0"]
 
 [sub_resource type="Resource" id="Resource_biv31"]
@@ -17,7 +17,7 @@ resistance = 4
 
 [resource]
 script = ExtResource("1_5x2me")
-sprite = ExtResource("2_ro8b5")
+sprites = ExtResource("4_4bxg1")
 name = "Bat"
 stats = SubResource("Resource_biv31")
 combat_actions = Array[ExtResource("1_ouab4")]([ExtResource("2_phm1e")])
