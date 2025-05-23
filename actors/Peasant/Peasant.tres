@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ActorBase" load_steps=9 format=3 uid="uid://dsmc2okxinm4t"]
 
-[ext_resource type="Script" uid="uid://bdoekquxuxxad" path="res://actors/actor_components/actor_base.gd" id="1_g2we5"]
+[ext_resource type="Script" uid="uid://bdoekquxuxxad" path="res://actors/_actor_components/actor_base.gd" id="1_g2we5"]
 [ext_resource type="Script" uid="uid://dfi2ffffuj22s" path="res://combat_actions/basic_combat_action.gd" id="1_h05gq"]
 [ext_resource type="Resource" uid="uid://b3q0lde81eh72" path="res://combat_actions/Punch.tres" id="2_6342u"]
 [ext_resource type="Texture2D" uid="uid://crqkx11siqfxv" path="res://units_wesnoth/human-peasants/peasant.png" id="2_l2h2v"]
-[ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/actor_components/stats.gd" id="3_81jq3"]
+[ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/stats.gd" id="3_81jq3"]
 [ext_resource type="Resource" uid="uid://cy7kl1uxr6apc" path="res://combat_actions/Bolt.tres" id="3_qq51j"]
 [ext_resource type="Resource" uid="uid://dokxamaxsia10" path="res://combat_actions/kill.tres" id="4_akl0g"]
 
