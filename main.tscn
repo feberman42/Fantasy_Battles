@@ -6,6 +6,31 @@
 
 [node name="main" type="Node2D"]
 
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuContainer" type="PanelContainer" parent="MenuLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.5
+offset_top = -14.0
+offset_right = 44.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="CenterContainer" parent="MenuLayer/MenuContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/StartMenu"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Welcome"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
@@ -23,20 +48,3 @@ opponent = NodePath("../Opponent")
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
 position = Vector2(110, 42)
 opponent = NodePath("../Player")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="StartMenu" type="CenterContainer" parent="CanvasLayer"]
-offset_left = -56.0
-offset_right = 294.0
-offset_bottom = 196.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/StartMenu"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
-text = "Welcome"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
