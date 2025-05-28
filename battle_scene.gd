@@ -5,7 +5,6 @@ class_name BattleScene extends Node2D
 
 func _ready() -> void:
 	TurnManager.end_battle.connect(_on_end_battle)
-	start_battle()
 
 func start_battle() -> void:
 	print("Start next battle")
