@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=25 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://j2hob57ixwxt" path="res://actors/Bat/Sprites/bat-se-1.png" id="1_0a4hs"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
 [ext_resource type="Texture2D" uid="uid://donggml2eh845" path="res://actors/Bat/Sprites/bat-se-5.png" id="5_afl5p"]
-[ext_resource type="FontFile" uid="uid://58d83q2jjs0u" path="res://fonts/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf" id="5_vacvx"]
 [ext_resource type="Texture2D" uid="uid://bhb370ev7jlsl" path="res://actors/Skeleton/Sprites/skeleton-se-bob1.png" id="6_nrww3"]
 [ext_resource type="Texture2D" uid="uid://b1ojsp54dyw44" path="res://actors/Skeleton/Sprites/skeleton-se-bob2.png" id="7_nqpol"]
 [ext_resource type="Texture2D" uid="uid://dauqoqtcjm8av" path="res://actors/Skeleton/Sprites/skeleton-se-bob3.png" id="8_n2i6m"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b8gk5bh70gu1l" path="res://actors/Skeleton/Sprites/skeleton-se-bob6.png" id="11_di1no"]
 [ext_resource type="Texture2D" uid="uid://k1y6ja3j630r" path="res://actors/Skeleton/Sprites/skeleton-se-bob7.png" id="12_u01te"]
 [ext_resource type="Texture2D" uid="uid://drayptex46uci" path="res://actors/Skeleton/Sprites/skeleton-se-bob8.png" id="13_q8y1m"]
+[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am4fw"]
 animations = [{
@@ -91,14 +91,11 @@ bg_color = Color(0.235732, 0.235732, 0.235732, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a8if"]
 bg_color = Color(0.955179, 0.398739, 0.297036, 1)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q32jy"]
-
-[sub_resource type="Theme" id="Theme_guve6"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
 bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
 [node name="Actor" type="AnimatedSprite2D" groups=["actor"]]
+scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_am4fw")
 animation = &"skeleton"
 frame_progress = 0.0768719
@@ -139,19 +136,13 @@ show_percentage = false
 script = ExtResource("4_x4sjk")
 
 [node name="CombatActionsList" type="ItemList" parent="."]
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("CanvasItemMaterial_q32jy")
 offset_left = -34.0
 offset_top = 39.0
-offset_right = 593.0
-offset_bottom = 161.0
-scale = Vector2(0.11, 0.11)
-theme = SubResource("Theme_guve6")
+offset_right = 36.0
+offset_bottom = 86.0
+theme = ExtResource("18_nqpol")
 theme_override_colors/guide_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.82, 0.82, 0.82, 1)
-theme_override_fonts/font = ExtResource("5_vacvx")
-theme_override_font_sizes/font_size = 100
 theme_override_styles/panel = SubResource("StyleBoxFlat_5d4ph")
 allow_search = false
 auto_height = true

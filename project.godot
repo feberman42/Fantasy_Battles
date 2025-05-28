@@ -18,16 +18,29 @@ config/icon="res://icon.svg"
 [autoload]
 
 Refs="*res://refs.gd"
+ConfigManager="*res://config_manager.gd"
 TurnManager="*res://turn_manager.gd"
 
 [display]
 
+window/size/viewport_width=192
+window/size/viewport_height=108
+window/size/window_width_override=1600
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 
 [global_group]
 
 actor=""
 player=""
+
+[importer_defaults]
+
+font_data_dynamic={
+&"antialiasing": 0,
+&"generate_mipmaps": true,
+&"subpixel_positioning": 0
+}
 
 [input]
 
