@@ -1,5 +1,10 @@
 extends Node
 
+var GROUP_ACTOR: String = "actor"
+var GROUP_PLAYER: String = "player"
+var GROUP_MAIN_MENU: String = "main_menu"
+
+
 var ACTOR_BASE_PATH: String = "res://actors"
 var ACTOR_BASE_LIST: Array[ActorBase]
 
