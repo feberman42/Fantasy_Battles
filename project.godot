@@ -33,6 +33,7 @@ window/stretch/mode="canvas_items"
 
 actor=""
 player=""
+main_menu=""
 
 [importer_defaults]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=7 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
 [ext_resource type="Script" uid="uid://byf24kjmwvja4" path="res://game_manager.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://c1kvinpw44wub" path="res://battle_scene.gd" id="1_mnqk2"]
+[ext_resource type="Script" uid="uid://cy28j3ocpjb6g" path="res://menu_layer.gd" id="2_7mycd"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="2_ljlfu"]
 
 [node name="main" type="Node2D"]
@@ -11,6 +12,7 @@ script = ExtResource("1_lquwl")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 follow_viewport_scale = 1.42
+script = ExtResource("2_7mycd")
 
 [node name="MenuContainer" type="PanelContainer" parent="MenuLayer"]
 anchors_preset = 15
@@ -20,7 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1bvp3")
 
-[node name="StartMenu" type="CenterContainer" parent="MenuLayer/MenuContainer"]
+[node name="StartMenu" type="CenterContainer" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/StartMenu"]
