@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=6 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
 [ext_resource type="Script" uid="uid://byf24kjmwvja4" path="res://game_manager.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://c1kvinpw44wub" path="res://battle_scene.gd" id="1_mnqk2"]
 [ext_resource type="Script" uid="uid://cy28j3ocpjb6g" path="res://menu_layer.gd" id="2_7mycd"]
-[ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="2_ljlfu"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -112,7 +111,6 @@ opponent_actor = NodePath("Opponent")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 position = Vector2(-7, 11)
-base = ExtResource("2_ljlfu")
 opponent = NodePath("../Opponent")
 
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]

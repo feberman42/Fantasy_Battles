@@ -1,4 +1,4 @@
-class_name Actor extends AnimatedSprite2D
+class_name Actor extends Sprite2D
 
 @export var base: ActorBase
 var combat_cations: Array[BasicCombatAction]
@@ -8,8 +8,8 @@ var status: Status = Status.new()
 @export var opponent: Actor
 
 @onready var name_tag: Label = $NameTag
-@onready var health_bar: HealthBar = $HealthBar
-@onready var combat_action_list: CombatActionList = $CombatActionsList
+@onready var health_bar: HealthBar = $VBoxContainer/HealthBar
+@onready var combat_action_list: CombatActionList = $VBoxContainer/CombatActionsList
 
 var wait_for_input: bool = false
 
@@ -25,8 +25,8 @@ func _ready() -> void:
 
 func load_base() -> void:
 	print(self, " load_base...")
-	self.sprite_frames = base.sprites
-	self.play("idle")
+	
+	self.texture = base.sprite
 	self.name_tag.text = "Player"
 	if not self.is_in_group("player"):
 		self.flip_h = true

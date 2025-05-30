@@ -3,7 +3,7 @@ class_name HealthBar extends ProgressBar
 var actor: Actor
 
 func _ready() -> void:
-	actor = get_parent()
+	actor = get_parent().get_parent()
 
 func update() -> void:
 	max_value = actor.current_stats.health

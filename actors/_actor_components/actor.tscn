@@ -1,85 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
 
-[ext_resource type="Texture2D" uid="uid://j2hob57ixwxt" path="res://actors/Bat/Sprites/bat-se-1.png" id="1_0a4hs"]
+[ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
-[ext_resource type="Texture2D" uid="uid://cs440vhh2shrr" path="res://actors/Bat/Sprites/bat-se-2.png" id="2_nqcn1"]
-[ext_resource type="Texture2D" uid="uid://bidgp1rl6rr7f" path="res://actors/Bat/Sprites/bat-se-3.png" id="3_tr2ew"]
-[ext_resource type="Resource" uid="uid://bspg866urdgvy" path="res://actors/Bat/Bat.tres" id="3_ymmc7"]
-[ext_resource type="Texture2D" uid="uid://bwchkf0fyxagb" path="res://actors/Bat/Sprites/bat-se-4.png" id="4_kbjf7"]
+[ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="3_c00nj"]
 [ext_resource type="FontFile" uid="uid://dpv85iuthlyy8" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="4_ko51d"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
-[ext_resource type="Texture2D" uid="uid://donggml2eh845" path="res://actors/Bat/Sprites/bat-se-5.png" id="5_afl5p"]
-[ext_resource type="Texture2D" uid="uid://bhb370ev7jlsl" path="res://actors/Skeleton/Sprites/skeleton-se-bob1.png" id="6_nrww3"]
-[ext_resource type="Texture2D" uid="uid://b1ojsp54dyw44" path="res://actors/Skeleton/Sprites/skeleton-se-bob2.png" id="7_nqpol"]
-[ext_resource type="Texture2D" uid="uid://dauqoqtcjm8av" path="res://actors/Skeleton/Sprites/skeleton-se-bob3.png" id="8_n2i6m"]
-[ext_resource type="Texture2D" uid="uid://diodisbkihr4d" path="res://actors/Skeleton/Sprites/skeleton-se-bob4.png" id="9_jk235"]
-[ext_resource type="Texture2D" uid="uid://c3r2rm4nhuxmi" path="res://actors/Skeleton/Sprites/skeleton-se-bob5.png" id="10_3c2in"]
-[ext_resource type="Texture2D" uid="uid://b8gk5bh70gu1l" path="res://actors/Skeleton/Sprites/skeleton-se-bob6.png" id="11_di1no"]
-[ext_resource type="Texture2D" uid="uid://k1y6ja3j630r" path="res://actors/Skeleton/Sprites/skeleton-se-bob7.png" id="12_u01te"]
-[ext_resource type="Texture2D" uid="uid://drayptex46uci" path="res://actors/Skeleton/Sprites/skeleton-se-bob8.png" id="13_q8y1m"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_am4fw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_0a4hs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_nqcn1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tr2ew")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_kbjf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_afl5p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_kbjf7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tr2ew")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_nqcn1")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_nrww3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_nqpol")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_n2i6m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_jk235")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_3c2in")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_di1no")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_u01te")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_q8y1m")
-}],
-"loop": true,
-"name": &"skeleton",
-"speed": 5.0
-}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dqqjx"]
 font = ExtResource("4_ko51d")
@@ -94,40 +21,40 @@ bg_color = Color(0.955179, 0.398739, 0.297036, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
 bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
-[node name="Actor" type="AnimatedSprite2D" groups=["actor"]]
-scale = Vector2(0.14, 0.14)
-sprite_frames = SubResource("SpriteFrames_am4fw")
-animation = &"skeleton"
-frame_progress = 0.0768719
+[node name="Actor" type="Sprite2D" groups=["actor"]]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bldra")
 script = ExtResource("2_arh56")
-base = ExtResource("3_ymmc7")
+base = ExtResource("3_c00nj")
 
 [node name="NameTag" type="Label" parent="."]
 texture_filter = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -59.0
-offset_top = -36.0
-offset_right = -13.0
-offset_bottom = -20.0
+offset_left = -42.8571
+offset_top = -42.8571
+offset_right = -42.8571
+offset_bottom = -26.8571
 grow_horizontal = 2
 text = "Name"
 label_settings = SubResource("LabelSettings_dqqjx")
 horizontal_alignment = 1
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-anchors_preset = 7
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(60, 0)
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -61.0
-offset_top = -44.0
-offset_right = 39.0
-offset_bottom = -37.0
+offset_left = -73.5714
+offset_top = 35.7143
+offset_right = -13.5714
+offset_bottom = 71.7143
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.5, 1)
+size_flags_vertical = 8
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bq2y7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1a8if")
 step = 1.0
@@ -135,11 +62,9 @@ value = 100.0
 show_percentage = false
 script = ExtResource("4_x4sjk")
 
-[node name="CombatActionsList" type="ItemList" parent="."]
-offset_left = -34.0
-offset_top = 39.0
-offset_right = 36.0
-offset_bottom = 86.0
+[node name="CombatActionsList" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 theme = ExtResource("18_nqpol")
 theme_override_colors/guide_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.82, 0.82, 0.82, 1)

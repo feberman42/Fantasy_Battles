@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/stats.gd" id="3_81jq3"]
 [ext_resource type="Resource" uid="uid://cy7kl1uxr6apc" path="res://combat_actions/Bolt.tres" id="3_qq51j"]
 [ext_resource type="Resource" uid="uid://dokxamaxsia10" path="res://combat_actions/kill.tres" id="4_akl0g"]
-[ext_resource type="SpriteFrames" uid="uid://cscyfa3ryuplf" path="res://actors/Peasant/Peasant_animations.tres" id="6_6d3ok"]
+[ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="6_6d3ok"]
 
 [sub_resource type="Resource" id="Resource_px50q"]
 script = ExtResource("3_81jq3")
@@ -19,7 +19,7 @@ resistance = 2
 
 [resource]
 script = ExtResource("1_g2we5")
-sprites = ExtResource("6_6d3ok")
+sprite = ExtResource("6_6d3ok")
 name = "Peasant"
 stats = SubResource("Resource_px50q")
 combat_actions = Array[ExtResource("1_h05gq")]([ExtResource("2_6342u"), ExtResource("3_qq51j"), ExtResource("4_akl0g")])
