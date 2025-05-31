@@ -4,21 +4,18 @@
 [ext_resource type="Script" uid="uid://bdoekquxuxxad" path="res://actors/_actor_components/actor_base.gd" id="1_v3opw"]
 [ext_resource type="Resource" uid="uid://b3q0lde81eh72" path="res://combat_actions/Punch.tres" id="2_7axcv"]
 [ext_resource type="Texture2D" uid="uid://6dp2q3vfy1ye" path="res://actors/Skeleton/Undead Monsters Color A10.png" id="4_630uh"]
-[ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/stats.gd" id="5_7uepw"]
+[ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/attributes.gd" id="5_7uepw"]
 
-[sub_resource type="Resource" id="Resource_m3ujq"]
+[sub_resource type="Resource" id="Resource_630uh"]
 script = ExtResource("5_7uepw")
-health = 100
-energy = 40
-attack = 4
-intelligence = 1
-defense = 1
-resistance = 3
+strength = 5
+dexterity = 2
+intelligence = 0
 metadata/_custom_type_script = "uid://c4lx4aga0hdtp"
 
 [resource]
 script = ExtResource("1_v3opw")
 sprite = ExtResource("4_630uh")
 name = "Skeleton"
-stats = SubResource("Resource_m3ujq")
+attributes = SubResource("Resource_630uh")
 combat_actions = Array[ExtResource("1_rsesi")]([ExtResource("2_7axcv")])

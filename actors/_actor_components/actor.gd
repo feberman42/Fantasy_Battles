@@ -1,8 +1,8 @@
 class_name Actor extends Sprite2D
 
 @export var base: ActorBase
+var attributes_raw: Attributes = Attributes.new()
 var combat_cations: Array[BasicCombatAction]
-var current_stats: Stats = Stats.new()
 var status: Status = Status.new()
 
 @export var opponent: Actor
@@ -32,7 +32,7 @@ func load_base() -> void:
 		self.flip_h = true
 		self.name_tag.text = base.name
 	_calculate_stats()
-	status.initialize(current_stats)
+	status.initialize(attributes_raw)
 	self.combat_cations = self.base.combat_actions.duplicate()
 	health_bar.update()
 	self.visible = true
@@ -59,19 +59,16 @@ func _end_turn() -> void:
 	TurnManager.turn_end.emit(self)
 		
 func _calculate_stats() -> void:
-	current_stats.health = base.stats.health
-	current_stats.energy = base.stats.energy
-	current_stats.attack = base.stats.attack
-	current_stats.defense = base.stats.defense
-	current_stats.intelligence = base.stats.intelligence
-	current_stats.resistance = base.stats.resistance
-	
+	attributes_raw.strength = base.attributes.strength
+	attributes_raw.dexterity = base.attributes.dexterity
+	attributes_raw.intelligence = base.attributes.intelligence
+
 func process_damage_payload(payload: DamagePayload) -> DamageReport:
 	var report: DamageReport = DamageReport.new()
 	
-	var physical_damage = maxi(payload.physical_damage - self.current_stats.defense, 0)
+	var physical_damage = maxi(payload.physical_damage, 0)
 	report.physical_damage_dealt = self._take_damage(physical_damage)
-	var magical_damage = maxi(payload.magical_damage - self.current_stats.resistance, 0)
+	var magical_damage = maxi(payload.magical_damage, 0)
 	report.magical_damage_dealt = self._take_damage(magical_damage)
 	report.killed = self._check_death()
 	return report
