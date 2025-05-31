@@ -13,6 +13,7 @@ var status: Status = Status.new()
 
 var wait_for_input: bool = false
 
+
 func _to_string() -> String:
 	return str("(" + self.name + " " + self.base.resource_path.get_file().get_basename() + ")")
 
@@ -25,17 +26,19 @@ func _ready() -> void:
 
 func load_base() -> void:
 	print(self, " load_base...")
-	
-	self.name_tag.text = "Player"
-	self.sprite.texture = base.sprite
-	if not self.is_in_group("player"):
-		self.sprite.flip_h = true
-		self.name_tag.text = base.name
+	update_sprite_and_name()
 	_calculate_stats()
 	status.initialize(attributes_raw)
 	self.combat_cations = self.base.combat_actions.duplicate()
 	health_bar.update()
 	self.visible = true
+	
+func update_sprite_and_name() -> void:
+	self.sprite.texture = base.sprite
+	self.name_tag.text = "Player"
+	if not self.is_in_group("player"):
+		self.sprite.flip_h = true
+		self.name_tag.text = base.name
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return

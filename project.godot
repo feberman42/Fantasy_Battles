@@ -23,8 +23,8 @@ TurnManager="*res://turn_manager.gd"
 
 [display]
 
-window/size/viewport_width=192
-window/size/viewport_height=108
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
