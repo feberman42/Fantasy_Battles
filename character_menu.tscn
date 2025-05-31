@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvcfheg23f48d"]
+
+[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_pi0qd"]
+[ext_resource type="Script" uid="uid://cf21ckj1bnioq" path="res://character_menu.gd" id="2_5thor"]
+[ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="3_rhfay"]
+
+[node name="CharacterMenu" type="PanelContainer" groups=["main_menu"]]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_pi0qd")
+script = ExtResource("2_5thor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Headline" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 160
+text = "Character"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharDisplay" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/HBoxContainer/CharDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Name"
+horizontal_alignment = 1
+
+[node name="PlayerSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/CharDisplay"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("3_rhfay")
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 300
+
+[node name="StatsDisplay" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Strength" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
+layout_mode = 2
+
+[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Strength"
+clip_text = true
+
+[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "-"
+flat = true
+
+[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
+layout_mode = 2
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+
+[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "+"
+flat = true
+
+[node name="Dexterity" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
+layout_mode = 2
+
+[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Dexterity"
+clip_text = true
+
+[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "-"
+flat = true
+
+[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
+layout_mode = 2
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+
+[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "+"
+flat = true
+
+[node name="Intelligence" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
+layout_mode = 2
+
+[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Intelligence"
+clip_text = true
+
+[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "-"
+flat = true
+
+[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
+layout_mode = 2
+theme = ExtResource("1_pi0qd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+
+[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_pi0qd")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "+"
+flat = true
