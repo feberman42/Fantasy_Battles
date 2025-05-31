@@ -1,16 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=10 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="3_c00nj"]
-[ext_resource type="FontFile" uid="uid://dpv85iuthlyy8" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="4_ko51d"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dqqjx"]
-font = ExtResource("4_ko51d")
-font_size = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
 bg_color = Color(0.235732, 0.235732, 0.235732, 1)
@@ -21,38 +16,36 @@ bg_color = Color(0.955179, 0.398739, 0.297036, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
 bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
-[node name="Actor" type="Sprite2D" groups=["actor"]]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_bldra")
+[node name="Actor" type="Node2D" groups=["actor"]]
 script = ExtResource("2_arh56")
 base = ExtResource("3_c00nj")
 
-[node name="NameTag" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 31.0
+offset_bottom = 60.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 0
+
+[node name="NameTag" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -42.8571
-offset_top = -42.8571
-offset_right = -42.8571
-offset_bottom = -26.8571
-grow_horizontal = 2
+layout_mode = 2
+theme = ExtResource("18_nqpol")
 text = "Name"
-label_settings = SubResource("LabelSettings_dqqjx")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(60, 0)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -73.5714
-offset_top = 35.7143
-offset_right = -13.5714
-offset_bottom = 71.7143
-grow_horizontal = 2
-size_flags_vertical = 8
+[node name="Control" type="Control" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 60)
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/Control"]
+unique_name_in_owner = true
+texture = ExtResource("1_bldra")
+offset = Vector2(20, 25)
 
 [node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bq2y7")
@@ -62,7 +55,13 @@ value = 100.0
 show_percentage = false
 script = ExtResource("4_x4sjk")
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
 [node name="CombatActionsList" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("18_nqpol")

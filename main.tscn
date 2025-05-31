@@ -10,6 +10,7 @@
 script = ExtResource("1_lquwl")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_scale = 1.42
 script = ExtResource("2_7mycd")
 
@@ -101,20 +102,18 @@ theme_override_font_sizes/font_size = 8
 text = "Main Menu"
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="BattleScene" type="Node2D" parent="." node_paths=PackedStringArray("player_actor", "opponent_actor")]
-position = Vector2(-20, -20)
 script = ExtResource("1_mnqk2")
 player_actor = NodePath("Player")
 opponent_actor = NodePath("Opponent")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
-position = Vector2(-7, 11)
+position = Vector2(-61, -34)
 opponent = NodePath("../Opponent")
 
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
-position = Vector2(42, 29)
+position = Vector2(41, 0)
 opponent = NodePath("../Player")
 
 [connection signal="pressed" from="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -5,6 +5,7 @@ class_name GameManager extends Node2D
 
 func _ready() -> void:
 	TurnManager.end_battle.connect(_on_end_battle)
+	menu_layer.visible = true
 	menu_layer.show_start_menu()
 
 func _on_button_pressed() -> void:

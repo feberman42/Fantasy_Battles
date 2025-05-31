@@ -1,4 +1,4 @@
-class_name Actor extends Sprite2D
+class_name Actor extends Node2D
 
 @export var base: ActorBase
 var attributes_raw: Attributes = Attributes.new()
@@ -6,10 +6,10 @@ var combat_cations: Array[BasicCombatAction]
 var status: Status = Status.new()
 
 @export var opponent: Actor
-
-@onready var name_tag: Label = $NameTag
-@onready var health_bar: HealthBar = $VBoxContainer/HealthBar
-@onready var combat_action_list: CombatActionList = $VBoxContainer/CombatActionsList
+@onready var name_tag: Label = %NameTag
+@onready var sprite: Sprite2D = %Sprite
+@onready var health_bar: HealthBar = %HealthBar
+@onready var combat_action_list: CombatActionList = %CombatActionsList
 
 var wait_for_input: bool = false
 
@@ -26,10 +26,10 @@ func _ready() -> void:
 func load_base() -> void:
 	print(self, " load_base...")
 	
-	self.texture = base.sprite
 	self.name_tag.text = "Player"
+	self.sprite.texture = base.sprite
 	if not self.is_in_group("player"):
-		self.flip_h = true
+		self.sprite.flip_h = true
 		self.name_tag.text = base.name
 	_calculate_stats()
 	status.initialize(attributes_raw)
