@@ -58,14 +58,14 @@ func _create_damage_payload(actor_status: Status) -> DamagePayload:
 	var payload: DamagePayload = DamagePayload.new()
 	
 	payload.physical_damage = self.flat_physical
-	payload.physical_damage += self.physical_per_strength * actor_status.attributes.strength
-	payload.physical_damage += self.physical_per_dexterity * actor_status.attributes.dexterity
-	payload.physical_damage += self.physical_per_intelligence * actor_status.attributes.intelligence
+	payload.physical_damage += self.physical_per_strength * actor_status.attributes_raw.strength
+	payload.physical_damage += self.physical_per_dexterity * actor_status.attributes_raw.dexterity
+	payload.physical_damage += self.physical_per_intelligence * actor_status.attributes_raw.intelligence
 	
 	payload.magical_damage = self.flat_magical
-	payload.magical_damage += self.magical_per_strength * actor_status.attributes.strength
-	payload.magical_damage += self.magical_per_dexterity * actor_status.attributes.dexterity
-	payload.magical_damage += self.magical_per_intelligence * actor_status.attributes.intelligence
+	payload.magical_damage += self.magical_per_strength * actor_status.attributes_raw.strength
+	payload.magical_damage += self.magical_per_dexterity * actor_status.attributes_raw.dexterity
+	payload.magical_damage += self.magical_per_intelligence * actor_status.attributes_raw.intelligence
 	
 	return payload
 

@@ -27,8 +27,7 @@ func _ready() -> void:
 func load_base() -> void:
 	print(self, " load_base...")
 	update_sprite_and_name()
-	_calculate_stats()
-	status.initialize(attributes_raw)
+	status.initialize(base.attributes)
 	self.combat_cations = self.base.combat_actions.duplicate()
 	health_bar.update()
 	self.visible = true
@@ -60,11 +59,6 @@ func _end_turn() -> void:
 	self.wait_for_input = false
 	self.combat_action_list.visible = false
 	TurnManager.turn_end.emit(self)
-		
-func _calculate_stats() -> void:
-	attributes_raw.strength = base.attributes.strength
-	attributes_raw.dexterity = base.attributes.dexterity
-	attributes_raw.intelligence = base.attributes.intelligence
 
 func process_damage_payload(payload: DamagePayload) -> DamageReport:
 	var report: DamageReport = DamageReport.new()
