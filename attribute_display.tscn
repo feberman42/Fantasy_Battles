@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhnyvmr7m3gob"]
+
+[ext_resource type="Script" uid="uid://cko887hhom2w8" path="res://attribute_display.gd" id="1_foj7f"]
+[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_ypke4"]
+
+[node name="AttributeDisplay" type="HBoxContainer"]
+script = ExtResource("1_foj7f")
+
+[node name="Attribute" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ypke4")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Strength"
+
+[node name="MinusButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_ypke4")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "-"
+flat = true
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_ypke4")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "100"
+horizontal_alignment = 1
+
+[node name="PlusButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_ypke4")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "+"
+flat = true

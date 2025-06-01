@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvcfheg23f48d"]
+[gd_scene load_steps=6 format=3 uid="uid://cvcfheg23f48d"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_pi0qd"]
 [ext_resource type="Script" uid="uid://cf21ckj1bnioq" path="res://character_menu.gd" id="2_5thor"]
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="3_rhfay"]
+[ext_resource type="Script" uid="uid://1cs2l6gm2xya" path="res://stats_display.gd" id="4_rhfay"]
+[ext_resource type="PackedScene" uid="uid://dhnyvmr7m3gob" path="res://attribute_display.tscn" id="5_yih4i"]
 
 [node name="CharacterMenu" type="PanelContainer" groups=["main_menu"]]
 clip_contents = true
@@ -73,128 +75,19 @@ size_flags_vertical = 3
 theme_override_constants/margin_right = 300
 
 [node name="StatsDisplay" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
+script = ExtResource("4_rhfay")
 
-[node name="Strength" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
+[node name="Strength" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay" instance=ExtResource("5_yih4i")]
 layout_mode = 2
 
-[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Strength"
-clip_text = true
-
-[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "-"
-flat = true
-
-[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
-layout_mode = 2
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "100"
-horizontal_alignment = 1
-
-[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Strength"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "+"
-flat = true
-
-[node name="Dexterity" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
+[node name="Dexterity" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay" instance=ExtResource("5_yih4i")]
 layout_mode = 2
 
-[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
+[node name="Intelligence" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay" instance=ExtResource("5_yih4i")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Dexterity"
-clip_text = true
-
-[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "-"
-flat = true
-
-[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
-layout_mode = 2
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "100"
-horizontal_alignment = 1
-
-[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Dexterity"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "+"
-flat = true
-
-[node name="Intelligence" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay"]
-layout_mode = 2
-
-[node name="Attribute" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Intelligence"
-clip_text = true
-
-[node name="Minus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "-"
-flat = true
-
-[node name="Value" type="Label" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
-layout_mode = 2
-theme = ExtResource("1_pi0qd")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "100"
-horizontal_alignment = 1
-
-[node name="Plus" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/MarginContainer/StatsDisplay/Intelligence"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("1_pi0qd")
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
-text = "+"
-flat = true
