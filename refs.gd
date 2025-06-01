@@ -1,11 +1,14 @@
 extends Node
 
-var GROUP_ACTOR: String = "actor"
-var GROUP_PLAYER: String = "player"
-var GROUP_MAIN_MENU: String = "main_menu"
+const GROUP_ACTOR: String = "actor"
+const GROUP_PLAYER: String = "player"
+const GROUP_MAIN_MENU: String = "main_menu"
 
+const ATTRIBUTE_STR: String = "Strength"
+const ATTRIBUTE_DEX: String = "Dexterity"
+const ATTRIBUTE_INT: String = "Intelligence"
 
-var ACTOR_BASE_PATH: String = "res://actors"
+const ACTOR_BASE_PATH: String = "res://actors"
 var ACTOR_BASE_LIST: Array[ActorBase]
 
 func _ready() -> void:
