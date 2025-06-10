@@ -2,12 +2,12 @@ class_name Actor extends Node2D
 
 @export var base: ActorBase
 var attributes_raw: Attributes = Attributes.new()
-var combat_cations: Array[BasicCombatAction]
+var combat_actions: Array[BasicCombatAction]
 var status: Status = Status.new()
 
 @export var opponent: Actor
 @onready var name_tag: Label = %NameTag
-@onready var sprite: Sprite2D = %Sprite
+@onready var sprite: ActorSprite = %Sprite
 @onready var health_bar: HealthBar = %HealthBar
 @onready var combat_action_list: CombatActionList = %CombatActionsList
 
@@ -28,7 +28,7 @@ func load_base() -> void:
 	print(self, " load_base...")
 	update_sprite_and_name()
 	status.initialize(base.attributes)
-	self.combat_cations = self.base.combat_actions.duplicate()
+	self.combat_actions = self.base.combat_actions.duplicate()
 	health_bar.update()
 	self.visible = true
 	
@@ -42,17 +42,18 @@ func update_sprite_and_name() -> void:
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
 	if self.is_in_group("player"):
-		combat_action_list.update_list(combat_cations)
+		combat_action_list.update_list(combat_actions)
 		combat_action_list.visible = true
 		wait_for_input = true
 		return
 	else:
-		combat_cations[0].execute(self, opponent)
+		combat_actions[0].execute(self, opponent)
 		await get_tree().create_timer(0.5).timeout
 		TurnManager.turn_end.emit(self)
 
 func _on_action_selected(index: int) -> void:
-	combat_cations[index].execute(self, opponent)
+	var report: DamageReport
+	report = await combat_actions[index].execute(self, opponent)
 	self._end_turn()
 
 func _end_turn() -> void:

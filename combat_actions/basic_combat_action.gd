@@ -47,14 +47,18 @@ func generate_tooltip() -> String:
 	
 	return tooltip
 
-func execute(actor: Actor, target: Actor) -> void:
+func execute(actor: Actor, target: Actor) -> DamageReport:
 	print(actor, " uses ", self, " on ", target)
 	var payload: DamagePayload = _create_damage_payload(actor.status)
 	print("Payload: ", payload)
+	actor.sprite.run_anim(Refs.AnimType.physical, target)
+	await actor.sprite.hit
 	var report: DamageReport = target.process_damage_payload(payload)
 	print("Report: ", report)
+	await actor.sprite.returned
 	if report.killed:
 		actor.status.get_exp(70)
+	return report
 
 func _create_damage_payload(actor_status: Status) -> DamagePayload:
 	var payload: DamagePayload = DamagePayload.new()

@@ -8,6 +8,11 @@ const ATTRIBUTE_STR: String = "Strength"
 const ATTRIBUTE_DEX: String = "Dexterity"
 const ATTRIBUTE_INT: String = "Intelligence"
 
+enum AnimType
+{
+	physical,
+}
+
 const ACTOR_BASE_PATH: String = "res://actors"
 var ACTOR_BASE_LIST: Array[ActorBase]
 
