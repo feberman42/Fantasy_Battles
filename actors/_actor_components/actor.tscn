@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="3_c00nj"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
+[ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="5_bldra"]
+[ext_resource type="Script" uid="uid://bo13rhpcvgdi0" path="res://actors/_actor_components/actor_sprite.gd" id="5_c00nj"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
@@ -38,16 +40,32 @@ theme = ExtResource("18_nqpol")
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="CenterContainer" parent="VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Sprite" type="Sprite2D" parent="VBoxContainer/Control"]
+[node name="Control" type="Control" parent="VBoxContainer/Control"]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/Control/Control"]
 unique_name_in_owner = true
+position = Vector2(0, 30.34)
 texture = ExtResource("1_bldra")
-offset = Vector2(33, 28)
+offset = Vector2(0, -31.71)
+script = ExtResource("5_c00nj")
+
+[node name="BreathTween" type="Node" parent="VBoxContainer/Control/Control/Sprite"]
+script = ExtResource("5_bldra")
+intensity = Vector2(1.04, 0.96)
+speed = 2.0
+metadata/_custom_type_script = "uid://bm442ollt08se"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true

@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Refs="*res://refs.gd"
-ConfigManager="*res://config_manager.gd"
-TurnManager="*res://turn_manager.gd"
+Refs="*res://globals/refs.gd"
+ConfigManager="*res://globals/config_manager.gd"
+TurnManager="*res://globals/turn_manager.gd"
 
 [display]
 
