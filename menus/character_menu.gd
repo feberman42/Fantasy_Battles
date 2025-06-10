@@ -1,6 +1,7 @@
 class_name CharacterMenu extends PanelContainer
 
 @onready var player_name_label: Label = %PlayerName
+@onready var player_level_label: Label = %Level
 @onready var player_sprite: TextureRect = %PlayerSprite
 @onready var stats_display: StatsDisplay = %StatsDisplay
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 
 func _update() -> void:
 	player_name_label.text = "Name"
+	player_level_label.text = str("Level: ", actor.status.level)
 	player_sprite.texture = actor.base.sprite
 	stats_display.update(actor.status)
 

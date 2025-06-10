@@ -53,6 +53,8 @@ func execute(actor: Actor, target: Actor) -> void:
 	print("Payload: ", payload)
 	var report: DamageReport = target.process_damage_payload(payload)
 	print("Report: ", report)
+	if report.killed:
+		actor.status.get_exp(70)
 
 func _create_damage_payload(actor_status: Status) -> DamagePayload:
 	var payload: DamagePayload = DamagePayload.new()

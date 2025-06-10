@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_ypke4"]
 
 [node name="AttributeDisplay" type="HBoxContainer"]
+scale = Vector2(1.39, 1.39)
 script = ExtResource("1_foj7f")
 
 [node name="Attribute" type="Label" parent="."]
