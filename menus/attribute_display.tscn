@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhnyvmr7m3gob"]
 
-[ext_resource type="Script" uid="uid://cko887hhom2w8" path="res://attribute_display.gd" id="1_foj7f"]
+[ext_resource type="Script" uid="uid://cko887hhom2w8" path="res://menus/attribute_display.gd" id="1_foj7f"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_ypke4"]
 
 [node name="AttributeDisplay" type="HBoxContainer"]
