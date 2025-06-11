@@ -1,5 +1,7 @@
 class_name BasicCombatAction extends Resource
 
+@export var energy_cost: int
+
 @export_category("Flat Damage")
 @export var flat_physical: int
 @export var flat_magical: int
