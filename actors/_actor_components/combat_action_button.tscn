@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfak2a5ufl5jw"]
+
+[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_4qhy5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veanb"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhfsf"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qhy5"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qhy5"]
+
+[node name="Button" type="Button"]
+theme = ExtResource("1_4qhy5")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_veanb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhfsf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4qhy5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4qhy5")
+text = "Combat Action 1"

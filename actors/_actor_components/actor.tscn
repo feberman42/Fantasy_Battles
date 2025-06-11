@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=14 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="5_bldra"]
 [ext_resource type="Script" uid="uid://bo13rhpcvgdi0" path="res://actors/_actor_components/actor_sprite.gd" id="5_c00nj"]
 [ext_resource type="Script" uid="uid://cn1y1jiwrs8jc" path="res://actors/_actor_components/attack_anim_tween.gd" id="7_22vue"]
+[ext_resource type="PackedScene" uid="uid://b53gahu1qq7xd" path="res://actors/_actor_components/combat_action_list.tscn" id="10_nsr2w"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
@@ -90,6 +91,7 @@ theme_override_constants/separation = 4
 
 [node name="CombatActionsList" type="ItemList" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -105,3 +107,8 @@ item_0/text = "combat action"
 item_1/text = "sd"
 item_2/text = "sd"
 script = ExtResource("5_5248d")
+
+[node name="NewList" parent="VBoxContainer" instance=ExtResource("10_nsr2w")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
