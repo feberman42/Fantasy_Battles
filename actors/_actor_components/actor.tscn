@@ -108,7 +108,19 @@ item_1/text = "sd"
 item_2/text = "sd"
 script = ExtResource("5_5248d")
 
-[node name="NewList" parent="VBoxContainer" instance=ExtResource("10_nsr2w")]
+[node name="Control2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="NewList" parent="VBoxContainer/Control2" instance=ExtResource("10_nsr2w")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 60.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(63, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
