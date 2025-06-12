@@ -3,18 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="3_c00nj"]
-[ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
 [ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="5_bldra"]
 [ext_resource type="Script" uid="uid://bo13rhpcvgdi0" path="res://actors/_actor_components/actor_sprite.gd" id="5_c00nj"]
 [ext_resource type="Script" uid="uid://cn1y1jiwrs8jc" path="res://actors/_actor_components/attack_anim_tween.gd" id="7_22vue"]
+[ext_resource type="PackedScene" uid="uid://rjxwhwsmi2vh" path="res://actors/_actor_components/resource_bar.tscn" id="8_22vue"]
 [ext_resource type="PackedScene" uid="uid://b53gahu1qq7xd" path="res://actors/_actor_components/combat_action_list.tscn" id="10_nsr2w"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="18_nqpol"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq2y7"]
-bg_color = Color(0.235732, 0.235732, 0.235732, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22vue"]
+bg_color = Color(0.88, 0.088, 0.286, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a8if"]
-bg_color = Color(0.955179, 0.398739, 0.297036, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsr2w"]
+bg_color = Color(0.1134, 0.49653, 0.81, 1)
 
 [node name="Actor" type="Node2D" groups=["actor"]]
 script = ExtResource("2_arh56")
@@ -68,17 +68,21 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("8_22vue")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 8)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/background = SubResource("StyleBoxFlat_bq2y7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1a8if")
-step = 1.0
-value = 100.0
-show_percentage = false
-script = ExtResource("4_x4sjk")
+style = SubResource("StyleBoxFlat_22vue")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 6.23)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EnergyBar" parent="VBoxContainer" instance=ExtResource("8_22vue")]
+unique_name_in_owner = true
+layout_mode = 2
+style = SubResource("StyleBoxFlat_nsr2w")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)

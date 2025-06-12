@@ -8,7 +8,8 @@ var status: Status = Status.new()
 @export var opponent: Actor
 @onready var name_tag: Label = %NameTag
 @onready var sprite: ActorSprite = %Sprite
-@onready var health_bar: HealthBar = %HealthBar
+@onready var health_bar: ResourceBar = %HealthBar
+@onready var energy_bar: ResourceBar = %EnergyBar
 @onready var combat_action_list: CombatActionList = %CombatActionsList
 
 var wait_for_input: bool = false
@@ -29,7 +30,8 @@ func load_base() -> void:
 	update_sprite_and_name()
 	status.initialize(base.attributes)
 	self.combat_actions = self.base.combat_actions.duplicate()
-	health_bar.update()
+	health_bar.update(status.current_health, status.max_health)
+	energy_bar.update(status.current_energy, status.max_energy)
 	self.visible = true
 	
 func update_sprite_and_name() -> void:
@@ -74,7 +76,7 @@ func _take_damage(amount: int) -> int:
 	if amount > status.current_health:
 		amount = status.current_health
 	status.current_health -= amount
-	health_bar.update()
+	health_bar.update(status.current_health, status.max_health)
 	return amount
 
 func _check_death() -> bool:
