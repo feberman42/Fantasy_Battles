@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("char_menu"):
 		char_menu.toggle(player_actor)
+		player_actor.update_bars()
 
 func start_run() -> void:
 	print("Start new run")

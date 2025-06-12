@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActorBase" load_steps=9 format=3 uid="uid://dsmc2okxinm4t"]
+[gd_resource type="Resource" script_class="ActorBase" load_steps=10 format=3 uid="uid://dsmc2okxinm4t"]
 
 [ext_resource type="Script" uid="uid://bdoekquxuxxad" path="res://actors/_actor_components/actor_base.gd" id="1_g2we5"]
 [ext_resource type="Script" uid="uid://dfi2ffffuj22s" path="res://combat_actions/basic_combat_action.gd" id="1_h05gq"]
@@ -6,11 +6,12 @@
 [ext_resource type="Resource" uid="uid://cy7kl1uxr6apc" path="res://combat_actions/Bolt.tres" id="3_qq51j"]
 [ext_resource type="Resource" uid="uid://dokxamaxsia10" path="res://combat_actions/kill.tres" id="4_akl0g"]
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="6_6d3ok"]
+[ext_resource type="Resource" uid="uid://c5q7xpj2cfg7k" path="res://combat_actions/Kick.tres" id="6_g7bc7"]
 [ext_resource type="Script" uid="uid://c4lx4aga0hdtp" path="res://actors/_actor_components/attributes.gd" id="7_6d3ok"]
 
 [sub_resource type="Resource" id="Resource_6d3ok"]
 script = ExtResource("7_6d3ok")
-strength = 5
+strength = 10
 dexterity = 3
 intelligence = 1
 metadata/_custom_type_script = "uid://c4lx4aga0hdtp"
@@ -20,4 +21,4 @@ script = ExtResource("1_g2we5")
 sprite = ExtResource("6_6d3ok")
 name = "Peasant"
 attributes = SubResource("Resource_6d3ok")
-combat_actions = Array[ExtResource("1_h05gq")]([ExtResource("2_6342u"), ExtResource("3_qq51j"), ExtResource("4_akl0g")])
+combat_actions = Array[ExtResource("1_h05gq")]([ExtResource("2_6342u"), ExtResource("3_qq51j"), ExtResource("4_akl0g"), ExtResource("6_g7bc7")])

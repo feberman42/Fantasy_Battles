@@ -17,8 +17,12 @@ func initialize(stats: Attributes) -> void:
 	current_energy = max_energy
 
 func update() -> void:
+	var old_health: int = max_health
 	max_health = attributes_raw.strength * 5
+	current_health += max_health - old_health
+	var old_energy: int = max_energy
 	max_energy = attributes_raw.intelligence * 3
+	current_energy += max_energy - old_energy
 	
 func get_exp(amount: int) -> void:
 	if amount < 0:

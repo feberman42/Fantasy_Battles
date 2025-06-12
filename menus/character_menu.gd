@@ -36,3 +36,5 @@ func _on_attribute_increase(attribute: String) -> void:
 		_:
 			print_rich("[color=red]Error:[/color] Stat increse of unknown type. ", attribute)
 	_update()
+	actor.status.update()
+	actor.update_bars_and_ca()

@@ -30,8 +30,7 @@ func load_base() -> void:
 	update_sprite_and_name()
 	status.initialize(base.attributes)
 	self.combat_actions = self.base.combat_actions.duplicate()
-	health_bar.update(status.current_health, status.max_health)
-	energy_bar.update(status.current_energy, status.max_energy)
+	update_bars()
 	self.visible = true
 	
 func update_sprite_and_name() -> void:
@@ -44,7 +43,7 @@ func update_sprite_and_name() -> void:
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
 	if self.is_in_group("player"):
-		combat_action_list.update_list(combat_actions, status)
+		update_bars_and_ca()
 		combat_action_list.visible = true
 		wait_for_input = true
 		return
@@ -55,6 +54,8 @@ func _on_turn_start(actor: Actor) -> void:
 
 func _on_action_selected(action: BasicCombatAction) -> void:
 	var report: DamageReport
+	status.current_energy -= action.energy_cost
+	update_bars()
 	report = await action.execute(self, opponent)
 	self._end_turn()
 
@@ -76,7 +77,7 @@ func _take_damage(amount: int) -> int:
 	if amount > status.current_health:
 		amount = status.current_health
 	status.current_health -= amount
-	health_bar.update(status.current_health, status.max_health)
+	update_bars()
 	return amount
 
 func _check_death() -> bool:
@@ -86,3 +87,12 @@ func _check_death() -> bool:
 		return true
 	else:
 		return false
+
+func update_bars_and_ca() -> void:
+	update_bars()
+	combat_action_list.update_list(combat_actions, status)
+	
+
+func update_bars() -> void:
+	health_bar.update(status.current_health, status.max_health)
+	energy_bar.update(status.current_energy, status.max_energy)
