@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=10 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="4_5vw27"]
 [ext_resource type="Resource" uid="uid://5ncrvx4lx82u" path="res://actors/Skeleton/Skeleton.tres" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cvcfheg23f48d" path="res://menus/character_menu.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://4d5mhjs3ssh7" path="res://tooltip.tscn" id="9_kek77"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -142,6 +143,8 @@ opponent = NodePath("../Player")
 [node name="CharacterMenu" parent="BattleScene" instance=ExtResource("7_272bh")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Tooltip" parent="." instance=ExtResource("9_kek77")]
 
 [connection signal="pressed" from="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MenuLayer/MenuContainer/RestMenu/VBoxContainer/Button" to="." method="_on_continue_button_pressed"]
