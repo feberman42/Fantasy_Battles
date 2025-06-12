@@ -21,7 +21,7 @@ func _to_string() -> String:
 func _ready() -> void:
 	combat_action_list.visible = false
 	TurnManager.turn_start.connect(_on_turn_start)
-	combat_action_list.item_selected.connect(_on_action_selected)
+	combat_action_list.action_selected.connect(_on_action_selected)
 	load_base()
 
 func load_base() -> void:
@@ -42,7 +42,7 @@ func update_sprite_and_name() -> void:
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
 	if self.is_in_group("player"):
-		combat_action_list.update_list(combat_actions)
+		combat_action_list.update_list(combat_actions, status)
 		combat_action_list.visible = true
 		wait_for_input = true
 		return
@@ -51,14 +51,13 @@ func _on_turn_start(actor: Actor) -> void:
 		await get_tree().create_timer(0.5).timeout
 		TurnManager.turn_end.emit(self)
 
-func _on_action_selected(index: int) -> void:
+func _on_action_selected(action: BasicCombatAction) -> void:
 	var report: DamageReport
-	report = await combat_actions[index].execute(self, opponent)
+	report = await action.execute(self, opponent)
 	self._end_turn()
 
 func _end_turn() -> void:
 	self.wait_for_input = false
-	self.combat_action_list.visible = false
 	TurnManager.turn_end.emit(self)
 
 func process_damage_payload(payload: DamagePayload) -> DamageReport:

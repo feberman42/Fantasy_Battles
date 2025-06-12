@@ -1,18 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b53gahu1qq7xd"]
+[gd_scene load_steps=3 format=3 uid="uid://b53gahu1qq7xd"]
 
 [ext_resource type="PackedScene" uid="uid://dfak2a5ufl5jw" path="res://actors/_actor_components/combat_action_button.tscn" id="1_1lc15"]
+[ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="1_sccik"]
 
 [node name="CombatActionsList" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.065625
+anchor_bottom = 0.0555556
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_sccik")
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Button" parent="VBoxContainer" instance=ExtResource("1_1lc15")]
+[node name="Button" parent="ButtonContainer" instance=ExtResource("1_1lc15")]
 layout_mode = 2
 
-[node name="Button2" parent="VBoxContainer" instance=ExtResource("1_1lc15")]
+[node name="Button2" parent="ButtonContainer" instance=ExtResource("1_1lc15")]
 layout_mode = 2
 
-[node name="Button3" parent="VBoxContainer" instance=ExtResource("1_1lc15")]
+[node name="Button3" parent="ButtonContainer" instance=ExtResource("1_1lc15")]
 layout_mode = 2

@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bna7gvywnyp5"]
+[gd_scene load_steps=12 format=3 uid="uid://bna7gvywnyp5"]
 
 [ext_resource type="Texture2D" uid="uid://bkfkq1ni6hfwc" path="res://actors/Peasant/Color A2.png" id="1_bldra"]
 [ext_resource type="Script" uid="uid://k2ddbncmn0xp" path="res://actors/_actor_components/actor.gd" id="2_arh56"]
 [ext_resource type="Resource" uid="uid://dsmc2okxinm4t" path="res://actors/Peasant/Peasant.tres" id="3_c00nj"]
 [ext_resource type="Script" uid="uid://xj8rnraq4hvd" path="res://actors/_actor_components/health_bar.gd" id="4_x4sjk"]
-[ext_resource type="Script" uid="uid://cr6ts70vxllol" path="res://actors/_actor_components/combat_actions_list.gd" id="5_5248d"]
 [ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="5_bldra"]
 [ext_resource type="Script" uid="uid://bo13rhpcvgdi0" path="res://actors/_actor_components/actor_sprite.gd" id="5_c00nj"]
 [ext_resource type="Script" uid="uid://cn1y1jiwrs8jc" path="res://actors/_actor_components/attack_anim_tween.gd" id="7_22vue"]
@@ -16,9 +15,6 @@ bg_color = Color(0.235732, 0.235732, 0.235732, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a8if"]
 bg_color = Color(0.955179, 0.398739, 0.297036, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d4ph"]
-bg_color = Color(0.120309, 0.197988, 0.183483, 1)
 
 [node name="Actor" type="Node2D" groups=["actor"]]
 script = ExtResource("2_arh56")
@@ -89,38 +85,19 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CombatActionsList" type="ItemList" parent="VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("18_nqpol")
-theme_override_colors/guide_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.82, 0.82, 0.82, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_5d4ph")
-allow_search = false
-auto_height = true
-item_count = 3
-item_0/text = "combat action"
-item_1/text = "sd"
-item_2/text = "sd"
-script = ExtResource("5_5248d")
-
 [node name="Control2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="NewList" parent="VBoxContainer/Control2" instance=ExtResource("10_nsr2w")]
+[node name="CombatActionsList" parent="VBoxContainer/Control2" instance=ExtResource("10_nsr2w")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.0
 offset_left = -63.0
 offset_right = 63.0
 offset_bottom = 60.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(63, 0)
-size_flags_horizontal = 4
-size_flags_vertical = 4
