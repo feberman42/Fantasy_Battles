@@ -18,7 +18,8 @@ class_name BasicCombatAction extends Resource
 
 func _to_string() -> String:
 	return self.resource_path.get_file().get_basename()
-	
+
+#Help
 func generate_tooltip() -> String:
 	var tooltip: String = str(self) + "\n"
 	if self._has_physical_component():

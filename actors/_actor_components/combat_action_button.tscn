@@ -26,3 +26,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4qhy5")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4qhy5")
 text = "Combat Action 1"
 script = ExtResource("2_yhfsf")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
