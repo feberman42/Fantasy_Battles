@@ -40,7 +40,11 @@ main_menu=""
 font_data_dynamic={
 &"antialiasing": 0,
 &"generate_mipmaps": true,
+&"hinting": 0,
 &"subpixel_positioning": 0
+}
+font_data_image={
+&"scaling_mode": 1
 }
 
 [input]
