@@ -23,6 +23,7 @@ func toggle(player: Actor) -> void:
 	else:
 		_update()
 		self.visible = true
+	player.update_bars()
 
 func _on_attribute_increase(attribute: String) -> void:
 	actor.status.skill_points_available -= 1

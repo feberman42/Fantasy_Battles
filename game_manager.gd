@@ -10,14 +10,14 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	menu_layer.hide_menus()
-	battle_manager.start_run()
+	battle_manager.start_new_run()
 
 func _on_main_menu_button_pressed() -> void:
 	menu_layer.show_start_menu()
 
 func _on_continue_button_pressed() -> void:
 	menu_layer.hide_menus()
-	battle_manager.start_battle()
+	battle_manager.game_run.start_next_battle()
 
 func _on_end_battle(winner: Actor) -> void:
 	if winner.is_in_group(Refs.GROUP_PLAYER):

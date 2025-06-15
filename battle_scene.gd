@@ -3,6 +3,7 @@ class_name BattleScene extends Node2D
 @export var player_actor: Actor
 @export var opponent_actor: Actor
 @onready var char_menu: CharacterMenu = %CharacterMenu
+var game_run: GameRun = GameRun.new()
 
 func _ready() -> void:
 	char_menu.visible = false
@@ -12,15 +13,8 @@ func _process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("char_menu"):
 		char_menu.toggle(player_actor)
-		player_actor.update_bars()
 
-func start_run() -> void:
+func start_new_run() -> void:
 	print("Start new run")
-	player_actor.load_base()
-	start_battle()
-
-func start_battle() -> void:
-	print("Start next battle")
-	opponent_actor.base = Refs.ACTOR_BASE_LIST.pick_random()
-	opponent_actor.load_base()
-	TurnManager.start_battle.emit()
+	self.game_run.initialize(self.player_actor, self.opponent_actor)
+	self.game_run.start_next_battle()
