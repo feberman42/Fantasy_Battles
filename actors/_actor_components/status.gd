@@ -1,5 +1,6 @@
 class_name Status extends Resource
 
+var owner: Actor
 var attributes_raw: Attributes
 var level: int = 1
 var experience: int = 0
@@ -10,13 +11,16 @@ var max_energy: int
 var current_health: int
 var current_energy: int
 
-func initialize(stats: Attributes) -> void:
-	attributes_raw = stats.duplicate()
-	update()
+func initialize(_owner: Actor, level: int = 1) -> void:
+	self.owner = _owner
+	attributes_raw = owner.base.attributes.duplicate()
+	while self.level < level:
+		self._level_up()
+	update_secondary_attibutes()
 	current_health = max_health
 	current_energy = max_energy
 
-func update() -> void:
+func update_secondary_attibutes() -> void:
 	var old_health: int = max_health
 	max_health = attributes_raw.strength * 5
 	current_health += max_health - old_health
@@ -36,3 +40,11 @@ func get_exp(amount: int) -> void:
 func _level_up() -> void:
 	level += 1
 	skill_points_available += 3
+	if not owner.is_player:
+		self._auto_level()
+
+func _auto_level() -> void:
+	# use skill points
+	for i in range(self.skill_points_available):
+		self.attributes_raw.strength += 1
+	self.update_secondary_attibutes()

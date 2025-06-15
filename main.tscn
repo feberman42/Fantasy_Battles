@@ -132,6 +132,7 @@ opponent_actor = NodePath("Opponent")
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 position = Vector2(-547, -360)
 scale = Vector2(4, 4)
+is_player = true
 opponent = NodePath("../Opponent")
 
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]

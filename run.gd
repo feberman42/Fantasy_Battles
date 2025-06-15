@@ -13,5 +13,5 @@ func start_next_battle() -> void:
 	self.stage += 1
 	print("Start next battle. Stage: ", str(stage))
 	opponent.base = Refs.ACTOR_BASE_LIST.pick_random()
-	opponent.load_base()
+	opponent.load_base(stage)
 	TurnManager.start_battle.emit()

@@ -5,6 +5,7 @@ var attributes_raw: Attributes = Attributes.new()
 var combat_actions: Array[BasicCombatAction]
 var status: Status = Status.new()
 
+@export var is_player: bool
 @export var opponent: Actor
 @onready var name_tag: Label = %NameTag
 @onready var sprite: ActorSprite = %Sprite
@@ -25,10 +26,10 @@ func _ready() -> void:
 	combat_action_list.action_selected.connect(_on_action_selected)
 	load_base()
 
-func load_base() -> void:
+func load_base(level: int = 1) -> void:
 	print(self, " load_base...")
 	update_sprite_and_name()
-	status.initialize(base.attributes)
+	status.initialize(self, level)
 	self.combat_actions = self.base.combat_actions.duplicate()
 	update_bars()
 	self.visible = true
