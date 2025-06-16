@@ -1,6 +1,7 @@
 class_name GameRun
 
 var stage: int = 0
+var money: int = 0
 var player: Actor
 var opponent: Actor
 
