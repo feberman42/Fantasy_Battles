@@ -40,6 +40,7 @@ func update_sprite_and_name() -> void:
 	if not self.is_in_group("player"):
 		self.sprite.flip_h = true
 		self.name_tag.text = base.name
+	self.name_tag.text += str(" Lvl.", self.status.level)
 
 func _on_turn_start(actor: Actor) -> void:
 	if actor != self: return
