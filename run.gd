@@ -2,6 +2,7 @@ class_name GameRun
 
 var stage: int = 0
 var money: int = 0
+var heal_cost: int = 10
 var player: Actor
 var opponent: Actor
 
@@ -18,3 +19,10 @@ func start_next_battle() -> void:
 	opponent.load_base(enemy_level)
 	player.update_sprite_and_name()
 	TurnManager.start_battle.emit()
+
+func deduct_money(amount: int) -> bool:
+	if money < amount:
+		return false
+	else:
+		money -= amount
+		return true

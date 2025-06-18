@@ -11,10 +11,10 @@ var max_energy: int
 var current_health: int
 var current_energy: int
 
-func initialize(_owner: Actor, level: int = 1) -> void:
+func initialize(_owner: Actor, _level: int = 1) -> void:
 	self.owner = _owner
 	attributes_raw = owner.base.attributes.duplicate()
-	while self.level < level:
+	while self.level < _level:
 		self._level_up()
 	update_secondary_attibutes()
 	current_health = max_health
@@ -48,3 +48,6 @@ func _auto_level() -> void:
 	for i in range(self.skill_points_available):
 		self.attributes_raw.strength += 1
 	self.update_secondary_attibutes()
+	
+func heal_full() -> void:
+	self.current_health = self.max_health

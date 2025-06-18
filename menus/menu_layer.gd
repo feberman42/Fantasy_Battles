@@ -12,6 +12,7 @@ func show_start_menu() -> void:
 
 func show_rest_menu() -> void:
 	hide_menus()
+	%Shop.update()
 	rest_menu.visible = true
 	main_menu_container.visible = true
 

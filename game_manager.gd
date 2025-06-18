@@ -21,6 +21,7 @@ func _on_continue_button_pressed() -> void:
 
 func _on_end_battle(winner: Actor) -> void:
 	if winner.is_in_group(Refs.GROUP_PLAYER):
+		battle_manager.game_run.money += 9
 		menu_layer.show_rest_menu()
 	else:
 		menu_layer.show_game_over_menu()
