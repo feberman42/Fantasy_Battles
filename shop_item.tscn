@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://qukwoou242i0"]
+
+[ext_resource type="Script" uid="uid://vxy8skkuek0u" path="res://shop_item.gd" id="1_glqc6"]
+[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="2_wxfep"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
+bg_color = Color(0.22, 0.22, 0.22, 0.713726)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg77c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
+bg_color = Color(1, 1, 1, 0.682353)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w48qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0.961716, 0.366229, 0.467063, 1)
+
+[node name="HealItem" type="VBoxContainer"]
+offset_right = 100.0
+offset_bottom = 124.0
+script = ExtResource("1_glqc6")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4c57u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efxa6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dg77c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ycdy4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w48qg")
+
+[node name="Panel" type="Panel" parent="Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_wxfep")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "10G"
+horizontal_alignment = 1
