@@ -26,3 +26,9 @@ func deduct_money(amount: int) -> bool:
 	else:
 		money -= amount
 		return true
+		
+func heal() -> void:
+	self.deduct_money(heal_cost)
+	player.status.heal_full()
+	player.update_bars()
+	heal_cost *= 1.5
