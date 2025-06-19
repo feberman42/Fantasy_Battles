@@ -10,6 +10,10 @@ var buyable: bool = true
 
 func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)
+	self.visibility_changed.connect(_reset)
+
+func _reset() -> void:
+	self.buyable = true
 
 func update(_cost: int, run: GameRun) -> void:
 	button.disabled = true
