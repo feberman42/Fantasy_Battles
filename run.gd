@@ -1,10 +1,7 @@
 class_name GameRun extends Node
 
 var stage: int = 0
-var money: int = 0:
-	set(value):
-		Signals.money_changed.emit(value)
-		print("Money: ", str(value))
+var money: int = 0
 var heal_cost: int = 10
 var player: Actor
 var opponent: Actor
@@ -28,7 +25,12 @@ func deduct_money(amount: int) -> bool:
 		return false
 	else:
 		money -= amount
+		Signals.money_changed.emit(money)
 		return true
+		
+func earn_money(amount: int) -> void:
+	money += amount
+	Signals.money_changed.emit(money)
 		
 func heal() -> void:
 	self.deduct_money(heal_cost)
