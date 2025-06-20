@@ -4,6 +4,9 @@
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_ypke4"]
 
 [node name="AttributeDisplay" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 264.0
+offset_bottom = 50.0
 scale = Vector2(1.39, 1.39)
 script = ExtResource("1_foj7f")
 
@@ -21,7 +24,7 @@ size_flags_vertical = 4
 theme = ExtResource("1_ypke4")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "-"
 flat = true
 
@@ -39,6 +42,6 @@ size_flags_vertical = 4
 theme = ExtResource("1_ypke4")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "+"
 flat = true

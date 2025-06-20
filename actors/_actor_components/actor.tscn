@@ -55,8 +55,8 @@ script = ExtResource("5_c00nj")
 
 [node name="BreathTween" type="Node" parent="VBoxContainer/Control/Control/Sprite"]
 script = ExtResource("5_bldra")
-intensity = Vector2(1.04, 0.96)
-speed = 2.0
+intensity = Vector2(1.05, 0.95)
+speed = 1.5
 metadata/_custom_type_script = "uid://bm442ollt08se"
 
 [node name="AttackAnimTween" type="Node" parent="VBoxContainer/Control/Control/Sprite"]

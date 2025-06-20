@@ -7,6 +7,7 @@ var tween: Tween
 @onready var parent = get_parent()
 
 func _ready():
+	await get_tree().create_timer(randf_range(0, speed)).timeout
 	tween = create_tween()
 	tween.set_loops()  # Loop forever
 	tween.set_trans(Tween.TRANS_SINE)
