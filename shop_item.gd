@@ -7,6 +7,7 @@ signal bought(cost: int)
 var cost: int
 var only_once: bool = true
 var buyable: bool = true
+var tooltip: String = "Heal your party."
 
 func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)
@@ -33,13 +34,3 @@ func _on_button_pressed() -> void:
 		buyable = false
 		button.disabled = true
 	bought.emit(cost)
-	
-func _on_mouse_entered() -> void:
-	print("test")
-	var _tooltip_text: String = "Heal your party."
-	$Tooltip.build(_tooltip_text)
-	$Tooltip.global_position = get_global_mouse_position()
-	$Tooltip.visible = true
-
-func _on_mouse_exited() -> void:
-	$Tooltip.visible = false
