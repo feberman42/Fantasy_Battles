@@ -1,4 +1,4 @@
-class_name ShopItem extends VBoxContainer
+class_name ShopItem extends Control
 
 signal bought(cost: int)
 
@@ -33,3 +33,13 @@ func _on_button_pressed() -> void:
 		buyable = false
 		button.disabled = true
 	bought.emit(cost)
+	
+func _on_mouse_entered() -> void:
+	print("test")
+	var _tooltip_text: String = "Heal your party."
+	$Tooltip.build(_tooltip_text)
+	$Tooltip.global_position = get_global_mouse_position()
+	$Tooltip.visible = true
+
+func _on_mouse_exited() -> void:
+	$Tooltip.visible = false

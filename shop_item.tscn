@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://qukwoou242i0"]
+[gd_scene load_steps=12 format=3 uid="uid://qukwoou242i0"]
 
 [ext_resource type="Script" uid="uid://vxy8skkuek0u" path="res://shop_item.gd" id="1_glqc6"]
+[ext_resource type="Texture2D" uid="uid://bw7dq6sehfn43" path="res://assets/potion.png" id="2_d8bsp"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="2_wxfep"]
+[ext_resource type="PackedScene" uid="uid://4d5mhjs3ssh7" path="res://tooltip/tooltip.tscn" id="4_v846v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
 
@@ -10,33 +12,44 @@ bg_color = Color(0.22, 0.22, 0.22, 0.713726)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg77c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8bsp"]
+bg_color = Color(1, 1, 1, 0.168627)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
 bg_color = Color(1, 1, 1, 0.682353)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w48qg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
-bg_color = Color(0.961716, 0.366229, 0.467063, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v846v"]
+texture = ExtResource("2_d8bsp")
 
-[node name="HealItem" type="VBoxContainer"]
-offset_right = 100.0
-offset_bottom = 124.0
+[node name="ShopItem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_glqc6")
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4c57u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_4c57u")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_efxa6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dg77c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d8bsp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ycdy4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w48qg")
 
-[node name="Panel" type="Panel" parent="Button"]
+[node name="Panel" type="Panel" parent="VBoxContainer/Button"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -45,13 +58,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_efxa6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_v846v")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_wxfep")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "10G"
 horizontal_alignment = 1
+
+[node name="Tooltip" parent="." instance=ExtResource("4_v846v")]
+layout_mode = 2
+offset_top = 288.0
+offset_right = 0.0
+offset_bottom = 288.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

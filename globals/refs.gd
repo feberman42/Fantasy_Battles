@@ -13,8 +13,6 @@ enum AnimType
 	physical,
 }
 
-var TOOLTIP: Tooltip_container
-
 const ACTOR_BASE_PATH: String = "res://actors"
 var ACTOR_BASE_LIST: Array[ActorBase]
 
