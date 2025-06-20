@@ -1,7 +1,10 @@
-class_name GameRun
+class_name GameRun extends Node
 
 var stage: int = 0
-var money: int = 0
+var money: int = 0:
+	set(value):
+		Signals.money_changed.emit(value)
+		print("Money: ", str(value))
 var heal_cost: int = 10
 var player: Actor
 var opponent: Actor

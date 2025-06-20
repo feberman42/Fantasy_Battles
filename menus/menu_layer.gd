@@ -2,7 +2,7 @@ class_name MenuLayer extends CanvasLayer
 
 @onready var main_menu_container: PanelContainer = $MenuContainer
 @onready var start_menu: CenterContainer = %StartMenu
-@onready var rest_menu: CenterContainer = %RestMenu
+@onready var rest_menu: Control = %RestMenu
 @onready var game_over_menu: CenterContainer = %GameOverMenu
 
 func show_start_menu() -> void:

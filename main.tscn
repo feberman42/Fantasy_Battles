@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=14 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
@@ -7,10 +7,14 @@
 [ext_resource type="Script" uid="uid://cy28j3ocpjb6g" path="res://menus/menu_layer.gd" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://bobrl6mt34d0y" path="res://shop.gd" id="5_4c57u"]
+[ext_resource type="Script" uid="uid://b81tbgvkibjlr" path="res://money_label.gd" id="5_dg77c"]
 [ext_resource type="Resource" uid="uid://5ncrvx4lx82u" path="res://actors/Skeleton/Skeleton.tres" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://qukwoou242i0" path="res://shop_item.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cvcfheg23f48d" path="res://menus/character_menu.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://4d5mhjs3ssh7" path="res://tooltip/tooltip.tscn" id="9_kek77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+content_margin_left = 20.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -71,14 +75,34 @@ size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 128
 text = "Start Game"
 
-[node name="RestMenu" type="CenterContainer" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
+[node name="RestMenu" type="Control" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/RestMenu"]
+[node name="MoneyLabel" type="Label" parent="MenuLayer/MenuContainer/RestMenu"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 1.0
+offset_bottom = 20.0
+theme = ExtResource("1_1bvp3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxEmpty_efxa6")
+text = "100G"
+script = ExtResource("5_dg77c")
+
+[node name="CenterContainer" type="CenterContainer" parent="MenuLayer/MenuContainer/RestMenu"]
+layout_mode = 2
+offset_left = 956.0
+offset_top = 536.0
+offset_right = 956.0
+offset_bottom = 536.0
+use_top_left = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/RestMenu/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 160
 text = "You defeated
@@ -88,17 +112,17 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Shop" type="HBoxContainer" parent="MenuLayer/MenuContainer/RestMenu/VBoxContainer"]
+[node name="Shop" type="HBoxContainer" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 179.26)
 layout_mode = 2
 alignment = 1
 script = ExtResource("5_4c57u")
 
-[node name="HealItem" parent="MenuLayer/MenuContainer/RestMenu/VBoxContainer/Shop" instance=ExtResource("6_efxa6")]
+[node name="HealItem" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer/Shop" instance=ExtResource("6_efxa6")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MenuLayer/MenuContainer/RestMenu/VBoxContainer"]
+[node name="Button" type="Button" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -170,5 +194,5 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [connection signal="pressed" from="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MenuLayer/MenuContainer/RestMenu/VBoxContainer/Button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer/Button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MenuLayer/MenuContainer/GameOverMenu/VBoxContainer/Button" to="." method="_on_main_menu_button_pressed"]
