@@ -16,9 +16,9 @@ func _on_pressed() -> void:
 
 func _on_mouse_entered() -> void:
 	var _tooltip_text: String = combat_action.generate_tooltip()
-	Refs.TOOLTIP.build(_tooltip_text)
-	Refs.TOOLTIP.global_position = get_global_mouse_position()
-	Refs.TOOLTIP.visible = true
+	$Tooltip.build(_tooltip_text)
+	$Tooltip.global_position = get_global_mouse_position()
+	$Tooltip.visible = true
 
 func _on_mouse_exited() -> void:
-	Refs.TOOLTIP.visible = false
+	$Tooltip.visible = false
