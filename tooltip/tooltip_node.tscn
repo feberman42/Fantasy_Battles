@@ -5,6 +5,8 @@
 
 [node name="TooltipNode" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
+offset_right = 300.0
+offset_bottom = 178.0
 mouse_filter = 2
 theme = ExtResource("1_ytcl1")
 script = ExtResource("2_c5e6u")

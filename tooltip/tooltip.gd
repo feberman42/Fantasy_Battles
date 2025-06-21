@@ -7,15 +7,20 @@ var tooltip_found: bool = false
 
 func _ready() -> void:
 	self.visible = false
-	var transform: Transform2D = get_global_transform()
-	self.scale = Vector2(1 / transform.get_scale().x, 1 / transform.get_scale().x)
 	parent.mouse_entered.connect(_on_mouse_entered)
 	parent.mouse_exited.connect(_on_mouse_exited)
+	_compensate_scaling()
+	_check_tooltip_property()
+	
+func _compensate_scaling() -> void:
+	var transform: Transform2D = get_global_transform()
+	self.scale = Vector2(1 / transform.get_scale().x, 1 / transform.get_scale().x)
+
+func _check_tooltip_property() -> void:
 	for property in parent.get_property_list():
 		if property["name"] == "tooltip":
 			tooltip_found = true
 			break
-	
 
 func build(text: String) -> void:
 	for _node in container.get_children():

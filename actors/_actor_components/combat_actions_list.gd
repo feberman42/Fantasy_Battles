@@ -17,8 +17,6 @@ func update_list(combat_actions: Array[BasicCombatAction], status: Status) -> vo
 			button.disabled = true
 			button.focus_mode = Control.FOCUS_NONE
 		button_container.add_child(button)
-		#var index: int = self.add_item(str(action))
-		#self.set_item_tooltip(index, action.generate_tooltip())
 
 func _on_button_pressed(action: BasicCombatAction):
 	action_selected.emit(action)

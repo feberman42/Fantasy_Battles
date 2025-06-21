@@ -15,4 +15,3 @@ func _ready():
 
 	tween.tween_property(parent, "scale", intensity, speed)
 	tween.tween_property(parent, "scale", Vector2(1.0, 1.0), speed)
-	
