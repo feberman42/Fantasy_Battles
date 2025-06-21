@@ -1,4 +1,4 @@
-class_name CharacterMenu extends PanelContainer
+class_name CharacterMenu extends BaseMenu
 
 @onready var player_name_label: Label = %PlayerName
 @onready var player_level_label: Label = %Level
@@ -8,22 +8,16 @@ class_name CharacterMenu extends PanelContainer
 var actor: Actor
 
 func _ready() -> void:
+	super._ready()
 	stats_display.increase_attribute.connect(_on_attribute_increase)
+	actor = get_tree().get_first_node_in_group(Refs.GROUP_PLAYER)
 
 func _update() -> void:
 	player_name_label.text = "Name"
 	player_level_label.text = str("Level: ", actor.status.level)
 	player_sprite.texture = actor.base.sprite
 	stats_display.update(actor.status)
-
-func toggle(player: Actor) -> void:
-	self.actor = player
-	if self.visible:
-		self.visible = false
-	else:
-		_update()
-		self.visible = true
-	player.update_bars()
+	actor.update_bars()
 
 func _on_attribute_increase(attribute: String) -> void:
 	actor.status.skill_points_available -= 1

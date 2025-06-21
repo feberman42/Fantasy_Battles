@@ -19,7 +19,11 @@ content_margin_left = 20.0
 [node name="main" type="Node2D"]
 script = ExtResource("1_lquwl")
 
+[node name="CharacterMenu" parent="." instance=ExtResource("7_272bh")]
+visible = false
+
 [node name="MenuLayer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_scale = 1.42
 script = ExtResource("2_7mycd")
 
@@ -180,10 +184,6 @@ position = Vector2(427, -83)
 scale = Vector2(4, 4)
 base = ExtResource("6_7mycd")
 opponent = NodePath("../Player")
-
-[node name="CharacterMenu" parent="BattleScene" instance=ExtResource("7_272bh")]
-unique_name_in_owner = true
-visible = false
 
 [connection signal="pressed" from="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer/Button" to="." method="_on_continue_button_pressed"]
