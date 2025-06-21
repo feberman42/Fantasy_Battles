@@ -8,6 +8,14 @@ const ATTRIBUTE_STR: String = "Strength"
 const ATTRIBUTE_DEX: String = "Dexterity"
 const ATTRIBUTE_INT: String = "Intelligence"
 
+enum Menu
+{
+	CHARACTER,
+	REST,
+	MAIN,
+	GAME_OVER,
+}
+
 enum AnimType
 {
 	physical,
