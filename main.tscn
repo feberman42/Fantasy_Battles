@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=14 format=3 uid="uid://dsx1t5pvgbbr8"]
 
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://5ncrvx4lx82u" path="res://actors/Skeleton/Skeleton.tres" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://qukwoou242i0" path="res://shop_item.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cvcfheg23f48d" path="res://menus/character_menu.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://cv60nimuu0qu4" path="res://assets/backgrounds/battleback1.png" id="9_dg77c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
 content_margin_left = 20.0
@@ -163,6 +164,10 @@ unique_name_in_owner = true
 script = ExtResource("1_mnqk2")
 player_actor = NodePath("Player")
 opponent_actor = NodePath("Opponent")
+
+[node name="Background" type="Sprite2D" parent="BattleScene"]
+scale = Vector2(1.75765, 1.75765)
+texture = ExtResource("9_dg77c")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 position = Vector2(-547, -360)

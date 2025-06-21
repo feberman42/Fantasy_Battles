@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://4d5mhjs3ssh7" path="res://tooltip/tooltip.tscn" id="3_veanb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veanb"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0.701961)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhfsf"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0.701961)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qhy5"]
 bg_color = Color(1, 1, 1, 1)
@@ -29,6 +29,7 @@ text = "Combat Action 1"
 script = ExtResource("2_yhfsf")
 
 [node name="Tooltip" parent="." instance=ExtResource("3_veanb")]
+visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
