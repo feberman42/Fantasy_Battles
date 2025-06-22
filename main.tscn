@@ -1,167 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsx1t5pvgbbr8"]
+[gd_scene load_steps=10 format=3 uid="uid://dsx1t5pvgbbr8"]
 
-[ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bna7gvywnyp5" path="res://actors/_actor_components/actor.tscn" id="1_c28we"]
 [ext_resource type="Script" uid="uid://byf24kjmwvja4" path="res://game_manager.gd" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://c1kvinpw44wub" path="res://battle_scene.gd" id="1_mnqk2"]
-[ext_resource type="Script" uid="uid://cy28j3ocpjb6g" path="res://menus/menu_layer.gd" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://bm442ollt08se" path="res://utils/breath_tween.gd" id="4_5vw27"]
-[ext_resource type="Script" uid="uid://bobrl6mt34d0y" path="res://shop.gd" id="5_4c57u"]
-[ext_resource type="Script" uid="uid://b81tbgvkibjlr" path="res://money_label.gd" id="5_dg77c"]
+[ext_resource type="PackedScene" uid="uid://pvjiqxfdftls" path="res://start_menu.tscn" id="2_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bsvftpkt7b70l" path="res://rest_menu.tscn" id="3_4c57u"]
 [ext_resource type="Resource" uid="uid://5ncrvx4lx82u" path="res://actors/Skeleton/Skeleton.tres" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://qukwoou242i0" path="res://shop_item.tscn" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cvcfheg23f48d" path="res://menus/character_menu.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://cv60nimuu0qu4" path="res://assets/backgrounds/battleback1.png" id="9_dg77c"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
-content_margin_left = 20.0
+[ext_resource type="PackedScene" uid="uid://c6wivglob5e28" path="res://game_over_menu.tscn" id="10_4c57u"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_lquwl")
 
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="StartMenu" parent="." instance=ExtResource("2_dg77c")]
+visible = false
+
+[node name="RestMenu" parent="." instance=ExtResource("3_4c57u")]
+menu_id = 1
+
 [node name="CharacterMenu" parent="." instance=ExtResource("7_272bh")]
 visible = false
 
-[node name="MenuLayer" type="CanvasLayer" parent="."]
-visible = false
-follow_viewport_scale = 1.42
-script = ExtResource("2_7mycd")
-
-[node name="MenuContainer" type="PanelContainer" parent="MenuLayer"]
-clip_contents = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_1bvp3")
-
-[node name="StartMenu" type="CenterContainer" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/StartMenu"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="MenuLayer/MenuContainer/StartMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 315.99)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(525, 315)
-size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 240
-text = "Welcome"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="BreathTween" type="Node" parent="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Control/RichTextLabel"]
-script = ExtResource("4_5vw27")
-intensity = Vector2(1.1, 0.9)
-metadata/_custom_type_script = "uid://bm442ollt08se"
-
-[node name="Button" type="Button" parent="MenuLayer/MenuContainer/StartMenu/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 128
-text = "Start Game"
-
-[node name="RestMenu" type="Control" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="MoneyLabel" type="Label" parent="MenuLayer/MenuContainer/RestMenu"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_right = 1.0
-offset_bottom = 20.0
-theme = ExtResource("1_1bvp3")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
-theme_override_styles/normal = SubResource("StyleBoxEmpty_efxa6")
-text = "100G"
-script = ExtResource("5_dg77c")
-
-[node name="CenterContainer" type="CenterContainer" parent="MenuLayer/MenuContainer/RestMenu"]
-layout_mode = 2
-offset_left = 956.0
-offset_top = 536.0
-offset_right = 956.0
-offset_bottom = 536.0
-use_top_left = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 160
-text = "You defeated
-your enemy"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="Shop" type="HBoxContainer" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 179.26)
-layout_mode = 2
-alignment = 1
-script = ExtResource("5_4c57u")
-
-[node name="HealItem" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer/Shop" instance=ExtResource("6_efxa6")]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 84
-text = "Continue"
-
-[node name="GameOverMenu" type="CenterContainer" parent="MenuLayer/MenuContainer" groups=["main_menu"]]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MenuContainer/GameOverMenu"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuLayer/MenuContainer/GameOverMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 240
-text = "Game Over"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="MenuLayer/MenuContainer/GameOverMenu/VBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 84
-text = "Main Menu"
-
-[node name="Camera" type="Camera2D" parent="."]
+[node name="GameOverMenu" parent="." instance=ExtResource("10_4c57u")]
+menu_id = 3
 
 [node name="BattleScene" type="Node2D" parent="." node_paths=PackedStringArray("player_actor", "opponent_actor") groups=["battle_manager"]]
 unique_name_in_owner = true
@@ -184,7 +48,3 @@ position = Vector2(427, -83)
 scale = Vector2(4, 4)
 base = ExtResource("6_7mycd")
 opponent = NodePath("../Player")
-
-[connection signal="pressed" from="MenuLayer/MenuContainer/StartMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MenuLayer/MenuContainer/RestMenu/CenterContainer/VBoxContainer/Button" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="MenuLayer/MenuContainer/GameOverMenu/VBoxContainer/Button" to="." method="_on_main_menu_button_pressed"]

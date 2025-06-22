@@ -5,23 +5,11 @@ class_name GameManager extends Node2D
 
 func _ready() -> void:
 	TurnManager.end_battle.connect(_on_end_battle)
-	menu_layer.visible = true
-	menu_layer.show_start_menu()
-
-func _on_button_pressed() -> void:
-	menu_layer.hide_menus()
-	battle_manager.start_new_run()
-
-func _on_main_menu_button_pressed() -> void:
-	menu_layer.show_start_menu()
-
-func _on_continue_button_pressed() -> void:
-	menu_layer.hide_menus()
-	battle_manager.game_run.start_next_battle()
+	Signals.toggle_menu.emit(Refs.Menu.MAIN)
 
 func _on_end_battle(winner: Actor) -> void:
 	if winner.is_in_group(Refs.GROUP_PLAYER):
 		battle_manager.game_run.earn_money(9)
-		menu_layer.show_rest_menu()
+		Signals.toggle_menu.emit(Refs.Menu.REST)
 	else:
-		menu_layer.show_game_over_menu()
+		Signals.toggle_menu.emit(Refs.Menu.GAME_OVER)

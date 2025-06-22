@@ -3,7 +3,8 @@ class_name BaseMenu extends CanvasLayer
 @export var menu_id: Refs.Menu
 
 func _ready() -> void:
-	Signals.show_menu.connect(_on_show_menu)
+	self.visible = false
+	Signals.toggle_menu.connect(_on_show_menu)
 
 func _update() -> void:
 	pass

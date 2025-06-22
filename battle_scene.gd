@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	if not player_actor.wait_for_input:
 		return
 	if Input.is_action_just_pressed("char_menu"):
-		Signals.show_menu.emit(Refs.Menu.CHARACTER)
+		Signals.toggle_menu.emit(Refs.Menu.CHARACTER)
 
 func start_new_run() -> void:
 	print("Start new run")
