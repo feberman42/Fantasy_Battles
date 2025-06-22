@@ -71,6 +71,7 @@ text = "10G"
 horizontal_alignment = 1
 
 [node name="Tooltip" parent="." instance=ExtResource("4_v846v")]
+visible = false
 layout_mode = 2
 offset_top = 288.0
 offset_bottom = 288.0
