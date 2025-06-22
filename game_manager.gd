@@ -1,7 +1,6 @@
 class_name GameManager extends Node2D
 
 @onready var battle_manager: BattleScene = $BattleScene
-@onready var menu_layer: MenuLayer = $MenuLayer
 
 func _ready() -> void:
 	TurnManager.end_battle.connect(_on_end_battle)
