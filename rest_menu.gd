@@ -5,6 +5,11 @@ extends BaseMenu
 func _ready() -> void:
 	super._ready()
 
+func _process(delta: float) -> void:
+	if self.visible == false: return
+	if Input.is_action_just_pressed("char_menu"):
+		Signals.toggle_menu.emit(Refs.Menu.CHARACTER)
+
 func _update() -> void:
 	%Shop.update()
 

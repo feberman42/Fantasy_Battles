@@ -2,6 +2,7 @@ extends Node
 
 signal money_changed(amount: int)
 signal toggle_menu(menu: Refs.Menu)
+signal start_battle
 
 func _ready() -> void:
 	toggle_menu.connect(log_show_menu)

@@ -22,6 +22,7 @@ visible = false
 menu_id = 1
 
 [node name="CharacterMenu" parent="." instance=ExtResource("7_272bh")]
+layer = 2
 visible = false
 
 [node name="GameOverMenu" parent="." instance=ExtResource("10_4c57u")]
