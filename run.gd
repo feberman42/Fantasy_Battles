@@ -15,7 +15,7 @@ func start_next_battle() -> void:
 	self.stage += 1
 	print("Start next battle. Stage: ", str(stage))
 	opponent.base = Refs.ACTOR_BASE_LIST.pick_random()
-	var enemy_level: int = floor(stage / 3) + 1
+	var enemy_level: int = ceil(stage / 3.0)
 	opponent.load_base(enemy_level)
 	player.update_sprite_and_name()
 	TurnManager.start_battle.emit()
