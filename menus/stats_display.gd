@@ -11,8 +11,8 @@ func _ready() -> void:
 	dexterity_display.increase.connect(_on_attribute_increase)
 	intelligence_display.increase.connect(_on_attribute_increase)
 
-func update(status: Status) -> void:
-	var points_available = status.skill_points_available > 0
+func update(status: Status, can_skill: bool) -> void:
+	var points_available = status.skill_points_available > 0 if can_skill else false
 	strength_display.update(Refs.ATTRIBUTE_STR, status.attributes_raw.strength, points_available)
 	dexterity_display.update(Refs.ATTRIBUTE_DEX, status.attributes_raw.dexterity, points_available)
 	intelligence_display.update(Refs.ATTRIBUTE_INT, status.attributes_raw.intelligence, points_available)

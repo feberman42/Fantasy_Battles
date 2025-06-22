@@ -27,7 +27,7 @@ func _update() -> void:
 	player_name_label.text = "Name"
 	player_level_label.text = str("Level: ", actor.status.level)
 	player_sprite.texture = actor.base.sprite
-	stats_display.update(actor.status)
+	stats_display.update(actor.status, game_manager.current_state == game_manager.GameState.REST)
 	actor.update_bars()
 	skip_process = true
 
