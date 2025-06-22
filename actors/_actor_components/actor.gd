@@ -3,7 +3,7 @@ class_name Actor extends Node2D
 @export var base: ActorBase
 var attributes_raw: Attributes = Attributes.new()
 var combat_actions: Array[BasicCombatAction]
-var status: Status = Status.new()
+var status: Status
 
 @export var is_player: bool
 @export var opponent: Actor
@@ -28,8 +28,9 @@ func _ready() -> void:
 
 func load_base(level: int = 1) -> void:
 	print(self, " load_base...")
-	update_sprite_and_name()
+	status = Status.new()
 	status.initialize(self, level)
+	update_sprite_and_name()
 	self.combat_actions = self.base.combat_actions.duplicate()
 	update_bars()
 	self.visible = true
