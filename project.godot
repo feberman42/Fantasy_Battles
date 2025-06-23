@@ -47,6 +47,9 @@ font_data_dynamic={
 font_data_image={
 &"scaling_mode": 1
 }
+texture={
+&"mipmaps/generate": true
+}
 
 [input]
 
