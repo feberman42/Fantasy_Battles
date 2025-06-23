@@ -45,3 +45,11 @@ func _on_attribute_increase(attribute: String) -> void:
 	_update()
 	actor.status.update_secondary_attibutes()
 	actor.update_bars_and_ca()
+
+
+func _on_exit_button_pressed() -> void:
+	match game_manager.current_state:
+		game_manager.GameState.REST:
+			Signals.toggle_menu.emit(Refs.Menu.REST)
+		game_manager.GameState.BATTLE:
+			self._hide()

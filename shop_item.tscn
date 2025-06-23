@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://qukwoou242i0"]
 
 [ext_resource type="Script" uid="uid://vxy8skkuek0u" path="res://shop_item.gd" id="1_glqc6"]
-[ext_resource type="Texture2D" uid="uid://bw7dq6sehfn43" path="res://assets/potion.png" id="2_d8bsp"]
+[ext_resource type="Texture2D" uid="uid://bw7dq6sehfn43" path="res://assets/icons/potion.png" id="2_d8bsp"]
 [ext_resource type="Theme" uid="uid://cmctj153iuswm" path="res://UI/main_ui.tres" id="2_wxfep"]
 [ext_resource type="PackedScene" uid="uid://4d5mhjs3ssh7" path="res://tooltip/tooltip.tscn" id="4_v846v"]
 
