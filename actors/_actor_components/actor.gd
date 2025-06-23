@@ -56,6 +56,7 @@ func _on_turn_start(actor: Actor) -> void:
 		TurnManager.turn_end.emit(self)
 
 func _on_action_selected(action: BasicCombatAction) -> void:
+	self.wait_for_input = false
 	var report: DamageReport
 	status.current_energy -= action.energy_cost
 	update_bars()
@@ -63,7 +64,6 @@ func _on_action_selected(action: BasicCombatAction) -> void:
 	self._end_turn()
 
 func _end_turn() -> void:
-	self.wait_for_input = false
 	TurnManager.turn_end.emit(self)
 
 func process_damage_payload(payload: DamagePayload) -> DamageReport:
