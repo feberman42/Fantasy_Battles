@@ -19,6 +19,7 @@ script = ExtResource("1_lquwl")
 visible = false
 
 [node name="RestMenu" parent="." instance=ExtResource("3_4c57u")]
+visible = false
 menu_id = 1
 
 [node name="CharacterMenu" parent="." instance=ExtResource("7_272bh")]
@@ -26,6 +27,7 @@ layer = 2
 visible = false
 
 [node name="GameOverMenu" parent="." instance=ExtResource("10_4c57u")]
+visible = false
 menu_id = 3
 
 [node name="BattleScene" type="Node2D" parent="." node_paths=PackedStringArray("player_actor", "opponent_actor") groups=["battle_manager"]]
@@ -35,17 +37,17 @@ player_actor = NodePath("Player")
 opponent_actor = NodePath("Opponent")
 
 [node name="Background" type="Sprite2D" parent="BattleScene"]
-scale = Vector2(1.75765, 1.75765)
+scale = Vector2(1.16, 1.16)
 texture = ExtResource("9_dg77c")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
-position = Vector2(-547, -360)
-scale = Vector2(4, 4)
+position = Vector2(-416, -208)
+scale = Vector2(3, 3)
 is_player = true
 opponent = NodePath("../Opponent")
 
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
-position = Vector2(427, -83)
-scale = Vector2(4, 4)
+position = Vector2(386, -204)
+scale = Vector2(3, 3)
 base = ExtResource("6_7mycd")
 opponent = NodePath("../Player")

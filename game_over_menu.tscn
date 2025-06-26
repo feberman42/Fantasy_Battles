@@ -23,8 +23,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/GameOverMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 240
+theme_override_font_sizes/normal_font_size = 160
 text = "Game Over"
 fit_content = true
 scroll_active = false
@@ -32,7 +33,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/GameOverMenu/VBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8

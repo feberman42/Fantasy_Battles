@@ -23,7 +23,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Control" type="Control" parent="PanelContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 315.99)
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -32,11 +32,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(525, 315)
+pivot_offset = Vector2(350, 125)
 size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 240
+theme_override_font_sizes/normal_font_size = 160
 text = "Welcome"
 fit_content = true
 scroll_active = false
@@ -49,12 +53,12 @@ intensity = Vector2(1.1, 0.9)
 metadata/_custom_type_script = "uid://bm442ollt08se"
 
 [node name="StartButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 80
 text = "Start Game"
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
