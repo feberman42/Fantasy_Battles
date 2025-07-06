@@ -21,6 +21,7 @@ script = ExtResource("2_arh56")
 base = ExtResource("3_c00nj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -43,28 +44,27 @@ theme_override_constants/shadow_outline_size = 3
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Control" type="CenterContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(65, 65)
+[node name="SpriteControl" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="Control" type="Control" parent="VBoxContainer/Control"]
-layout_mode = 2
-
-[node name="Sprite" type="Sprite2D" parent="VBoxContainer/Control/Control"]
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/SpriteControl"]
 unique_name_in_owner = true
-position = Vector2(0, 30.34)
+position = Vector2(0, 125)
+scale = Vector2(2, 2)
 texture = ExtResource("1_bldra")
-offset = Vector2(0, -31.71)
+offset = Vector2(0, -32)
 script = ExtResource("5_c00nj")
 
-[node name="BreathTween" type="Node" parent="VBoxContainer/Control/Control/Sprite"]
+[node name="BreathTween" type="Node" parent="VBoxContainer/SpriteControl/Sprite"]
 script = ExtResource("5_bldra")
 intensity = Vector2(1.05, 0.95)
 speed = 1.5
 metadata/_custom_type_script = "uid://bm442ollt08se"
 
-[node name="AttackAnimTween" type="Node" parent="VBoxContainer/Control/Control/Sprite"]
+[node name="AttackAnimTween" type="Node" parent="VBoxContainer/SpriteControl/Sprite"]
 unique_name_in_owner = true
 script = ExtResource("7_22vue")
 
@@ -75,27 +75,31 @@ theme_override_constants/separation = 4
 
 [node name="HealthBar" parent="VBoxContainer" instance=ExtResource("8_22vue")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 style = SubResource("StyleBoxFlat_22vue")
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 6.23)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="EnergyBar" parent="VBoxContainer" instance=ExtResource("8_22vue")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 style = SubResource("StyleBoxFlat_nsr2w")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="CombatActionsList" parent="VBoxContainer/Control2" instance=ExtResource("10_nsr2w")]
 unique_name_in_owner = true
@@ -104,9 +108,7 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_left = -63.5
-offset_right = 62.5
+offset_left = -63.0
+offset_right = 63.0
 offset_bottom = 60.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(63, 0)

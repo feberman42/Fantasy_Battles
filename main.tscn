@@ -42,12 +42,12 @@ texture = ExtResource("9_dg77c")
 
 [node name="Player" parent="BattleScene" node_paths=PackedStringArray("opponent") groups=["player"] instance=ExtResource("1_c28we")]
 position = Vector2(-416, -208)
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 is_player = true
 opponent = NodePath("../Opponent")
 
 [node name="Opponent" parent="BattleScene" node_paths=PackedStringArray("opponent") instance=ExtResource("1_c28we")]
 position = Vector2(386, -204)
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 base = ExtResource("6_7mycd")
 opponent = NodePath("../Player")
