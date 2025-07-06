@@ -15,6 +15,10 @@ layout_mode = 0
 offset_right = 300.0
 offset_bottom = 58.0
 mouse_filter = 2
+theme_override_constants/separation = 0
 
 [node name="TooltipNode" parent="VBoxContainer" instance=ExtResource("2_oxk8h")]
+layout_mode = 2
+
+[node name="TooltipNode2" parent="VBoxContainer" instance=ExtResource("2_oxk8h")]
 layout_mode = 2

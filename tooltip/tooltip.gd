@@ -4,6 +4,7 @@ class_name Tooltip extends Control
 @onready var container: VBoxContainer = $VBoxContainer
 @onready var parent: Control = get_parent()
 var tooltip_found: bool = false
+var has_tooltip_pos: bool = false
 
 func _ready() -> void:
 	self.visible = false
@@ -20,7 +21,8 @@ func _check_tooltip_property() -> void:
 	for property in parent.get_property_list():
 		if property["name"] == "tooltip":
 			tooltip_found = true
-			break
+		if property["name"] == "tooltip_pos":
+			has_tooltip_pos = true
 
 func build(text: String) -> void:
 	for _node in container.get_children():
@@ -35,7 +37,10 @@ func _on_mouse_entered() -> void:
 	if tooltip_found:
 		text = parent.tooltip
 	build(text)
-	global_position = get_global_mouse_position()
+	if has_tooltip_pos:
+		global_position = parent.tooltip_pos
+	else:
+		global_position = get_global_mouse_position()
 	visible = true
 
 func _on_mouse_exited() -> void:
