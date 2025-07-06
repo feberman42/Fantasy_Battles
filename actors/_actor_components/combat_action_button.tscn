@@ -16,6 +16,8 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qhy5"]
 
 [node name="Button" type="Button"]
+offset_right = 126.0
+offset_bottom = 20.0
 theme = ExtResource("1_4qhy5")
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
