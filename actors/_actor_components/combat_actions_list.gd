@@ -6,6 +6,9 @@ signal action_selected
 var button_scene: PackedScene = preload("res://actors/_actor_components/combat_action_button.tscn") 
 
 func _ready() -> void:
+	for button in button_container.get_children():
+		button.queue_free()
+	await get_tree().process_frame
 	for i in range(10):
 		var button: CombatActionButton = button_scene.instantiate()
 		button_container.add_child(button)
