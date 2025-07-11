@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BasicCombatAction" load_steps=2 format=3 uid="uid://btlml4s4tbswn"]
+
+[ext_resource type="Script" uid="uid://dfi2ffffuj22s" path="res://combat_actions/basic_combat_action.gd" id="1_m1pc6"]
+
+[resource]
+script = ExtResource("1_m1pc6")
+energy_cost = 15
+flat_physical = 20
+flat_magical = 0
+physical_per_strength = 0
+physical_per_dexterity = 2
+physical_per_intelligence = 0
+magical_per_strength = 0
+magical_per_dexterity = 0
+magical_per_intelligence = 0
+metadata/_custom_type_script = "uid://dfi2ffffuj22s"
